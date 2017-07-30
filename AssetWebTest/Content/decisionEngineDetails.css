@@ -1,0 +1,562 @@
+
+.decision-wrapper {
+	display: inline-block;
+}
+
+/* increased size of primary buttons to match height of current .d-label and .d-meter */
+.decision-wrapper .btn.primary {
+	padding: 10px 12px;
+}
+
+.decision-meter-wrapper,
+.decision-wrapper .form-group {
+	float: left;
+}
+
+.decision-meter-wrapper {
+	position: relative;
+	width: 375px;
+}
+
+.decision-meter {
+	width: inherit;
+}
+
+.d-label::before {
+	display: inline-block;
+	width: 100%;
+	padding: 2px 0;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;	
+	color: white;
+	margin-bottom: 1px;
+}
+.d-meter {
+	background-repeat: no-repeat;
+	/* width: 375px; */
+	min-height: 25px;
+}
+.d-label,
+.d-meter {
+	opacity: 1;
+	transition: opacity 0.2s;
+}				
+
+.decision-top-label::before {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #aaa;
+}
+
+.approve .decision-top-label::before,
+.reject .decision-top-label::before {
+	content: " "; /*recommends to ";*/
+}
+.strongly-approve .decision-top-label::before,
+.strongly-reject .decision-top-label::before {
+	content: " "; /*recommends to ";*/
+}
+.no-decision .decision-top-label::before {
+	content: "no recommendation";
+	font-weight: normal;
+}
+
+
+.strongly-approve .d-label::before,
+.approve .d-label::before {
+	background-color: #5cb85c;
+	content: "Approve";
+}
+
+.strongly-reject .d-label::before,
+.reject .d-label::before {
+	background-color: red;
+	content: "Reject";
+}
+			
+			
+.approve .d-meter          { background-image: url('images/approve.png'); }
+.strongly-approve .d-meter { background-image: url('images/strongly_approve.png'); }				
+.reject .d-meter           { background-image: url('images/reject.png'); }
+.strongly-reject .d-meter  { background-image: url('images/strongly_reject.png'); }	
+
+
+
+.no-decision .form-group,
+.no-decision .decision-meter-wrapper {
+	float: none;
+	display: inline-block;
+}
+.no-decision .d-label,
+.no-decision .d-meter {
+	display: none;
+}
+
+
+/* buttons */
+.decision-meter .btn {
+	position: absolute;
+	top: 18px;
+	width: inherit;
+	pointer-events: none;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	opacity: 0.0;
+	transition: opacity 0.3s;
+}
+.approve .decision-meter .btn,
+.strongly-approve .decision-meter .btn {
+	background-color: #5cb85c;
+}
+.reject .decision-meter .btn,
+.strongly-reject .decision-meter .btn {
+	background-color: red;
+}
+.approve .decision-meter .btn::before,
+.strongly-approve .decision-meter .btn::before {
+	content: "approve";
+}
+.reject .decision-meter .btn::before,
+.strongly-reject .decision-meter .btn::before {
+	content: "reject";
+}
+
+/* hoverstate */
+.decision-meter:hover .d-label,
+.decision-meter:hover .d-meter {
+	opacity: 0;
+    color: white;
+}
+.decision-meter:hover .btn {
+	pointer-events: auto;
+	opacity: 1.0;
+    color:white;
+}
+
+.recommendation-data {
+    margin: 15px 0;
+	color: #999;
+	cursor: pointer;
+}
+.recommendation-data .fa {
+	font-size: 16px;
+	margin-right: 5px;
+}
+.recommendation-toggle {
+	cursor: pointer;
+}
+/*
+.no-decision .recommendation-data {
+	display: none;
+}
+*/
+
+
+
+
+/* ------------------------------- */
+/* View Recommendation Data styles */
+
+/* handle toggles to show/hide content */
+.recommendation-toggle .fa-caret-right,
+.wos-proposals-toggle > .fa-caret-right {
+	transform: rotate(0);
+	transition: transform 0.15s;
+}
+.recommendation-data.expanded .recommendation-toggle > .fa-caret-right,
+.wos-proposals.expanded .wos-proposals-toggle > .fa-caret-right {
+	transform: rotate(90deg);
+}
+.recommendation-content {
+	display: none;
+	padding-left: 15px;
+}
+.recommendation-data.expanded .recommendation-content {
+	display: block;
+}
+.wos-proposals-toggle {
+	cursor: pointer;
+}
+.wos-proposals-content {
+	display: none;
+	padding: 15px 30px 0 30px;
+}
+.wos-proposals.expanded .wos-proposals-content {
+	display: block;
+}
+.toggle-text {
+	padding-left: 2px;
+}
+
+
+.not-enough-data {
+    margin: 30px 0;
+    font-weight: bold;
+    font-size: 16px;
+    color: #565656;
+}
+
+
+.gb-container {
+	width: 320px;
+	position: relative;
+	padding-top: 30px;
+	margin-bottom: 75px; /* allocate space below for absolutely positioned elements (dot value) */
+}
+
+.gb-container-empty {
+	width: 320px;
+	position: relative;
+	padding-top: 25px;
+	margin-bottom: 25px; /* allocate space to create info n/a title*/
+    font-size: 16px;
+}
+
+.graph-markers {
+	display: block;
+	height: 75px;
+	padding-top: 25px;
+	position: relative;
+}
+.graph-marker {
+	position: absolute;
+	width: 1px;
+	background-color: #ccc;
+	color: #ccc;
+	height: 100%;
+	bottom: 0;
+}
+
+.marker-min,
+.marker-max {
+	height: 15px;
+}
+.marker-25,
+.marker-75 {
+	height: 45px;
+}
+.marker-50 {
+	height: 75px;
+}
+
+.marker-min {
+	left: calc(10% - 3px);
+}
+.marker-min::before {
+	content: "MIN";
+	position: absolute;
+	top: -20px;
+	left: -11px;
+}
+
+.marker-25 {
+	left: calc(30% - 4px);
+}
+.marker-25::before {
+	content: "25";
+	position: absolute;
+	top: -20px;
+	left: -8px;
+}
+.marker-50 {
+	left: calc(50% - 5px);
+}
+.marker-50::before {
+	content: "50";
+	position: absolute;
+	top: -20px;
+	left: -8px;
+}
+.marker-75 {
+	left: calc(70% - 6px);
+}
+.marker-75::before {
+	content: "75";
+	position: absolute;
+	top: -20px;
+	left: -8px;
+}
+.marker-max {
+	left: calc(90% - 7px);
+}
+.marker-max::before {
+	content: "MAX";
+	position: absolute;
+	top: -20px;
+	left: -13px;
+}
+
+
+.marker-25::after,
+.marker-50::after,			
+.marker-75::after {
+	content: "TH";
+	position: absolute;
+	top: -21px;
+	left: 7px;
+	font-size: 9px;
+}
+
+
+.bars > span {
+	display: inline-block;
+	width: calc(20% - 5px);
+	height: 7px;
+	background-color: #aaa;
+	margin-right: 5px;
+	margin-left: -4px; /* account for inherit 4px horizontal spacing inherent in inline-block elements */
+}
+.bars > span:first-child,
+.bars > span:last-child {
+	width: calc(10% - 5px);
+}
+.bars > span:first-child {
+	margin-left: 0;
+}
+.bars > span:last-child {
+	margin-right: 0;
+}
+
+
+
+.graph-values {
+	position: relative;
+	margin-top: 4px;
+	color: #aaa;
+	font-size: 10px;
+}
+.graph-value {
+	position: absolute;
+	transform: translateX(-50%);
+}
+.graph-value-min { left: calc(10% - 2.5px); }
+.graph-value-25  { left: calc(30% - 2.5px); }
+.graph-value-50  { left: calc(50% - 2.5px); }
+.graph-value-75  { left: calc(70% - 2.5px); }
+.graph-value-max { left: calc(90% - 2.5px); }
+
+.indicator {
+	position: absolute;
+	bottom: -46px;
+	text-align: center;
+	transform: translateX(-50%);	
+	margin-left: -2.5px;
+	left: 35%;
+    height: 58px !important;
+}
+.indicator .dot {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: #565656;
+	margin-bottom: 25px;
+}
+.dot-value {
+	font-size: 21px;
+	font-weight: bold;
+	color: #565656;
+}
+
+
+/* classes to handle Indicator position and state */
+.gb-container.state-min .indicator    { left: 5%; }
+.gb-container.state-min-25 .indicator { left: 20%; }
+.gb-container.state-25-50 .indicator  { left: 39.5%; }
+.gb-container.state-50-75 .indicator  { left: 59%; }
+.gb-container.state-75-max .indicator { left: 79%; }
+.gb-container.state-max .indicator    { left: 93.5%; }
+
+.gb-container.state-min .bars > span:first-child {
+	background-color: red;
+}
+.gb-container.state-max .bars > span:last-child {
+	background-color: red;
+}
+
+.gb-container.state-min .dot-value {
+	transform: translateX(50%);
+	margin-left: -12px;
+}
+.gb-container.state-max .dot-value {
+	transform: translateX(-50%);
+	margin-right: -12px;
+}
+
+
+.provider-details {
+	margin-bottom: 15px;
+}
+.provider-details-grade,
+.provider-details-wos,
+.provider-details-compliance {
+	padding-left: 15px !important;
+}
+.provider-details-grade {
+	padding-top: 5px;
+    /*padding-left:15px;*/
+}
+.provider-details-grade-val,
+.provider-details-wos-val,
+.provider-details-compliance-val {
+	font-weight: bold;
+	font-size: 16px;
+	color: #565656;
+}
+
+
+.wo,
+.proposal {
+	display: inline-block;
+	width: 50%;
+    cursor: pointer !important;
+}
+.proposal {
+	margin-left: -4px;
+}
+
+.wos-bottom-label,
+.roposals-bottom-label {
+	padding-top: 15px;
+}
+
+
+/* Asset Intelligence */
+.asset-toggle,
+.asset-content {
+	margin-left: -13px;
+}
+.asset-toggle {
+	cursor: pointer;
+	padding: 5px 15px 2px 15px;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	display: inline-block;
+	background-color: transparent;
+	color: #999;
+}
+.asset-toggle .fa-caret-right {
+	font-size: 16px;
+	margin-right: 5px;
+	margin-left: 0;
+
+	transform: rotate(0);
+	transition: transform 0.35s;	
+}
+.asset-toggle.expanded {
+	background-color: #f6f6f6;
+}
+.asset-toggle.expanded .fa-caret-right {
+	transform: rotate(90deg);
+}
+
+.asset-toggle .toggle-text {
+	color: steelblue;
+}
+
+.asset-label { 
+	color: #999; 
+	display: block;
+	margin-bottom: 0;
+	font-size: 11px;
+}
+
+.asset-content {
+	display: none;
+}
+.asset-intelligence.expanded .asset-content {
+	display: block;
+}
+
+
+
+
+.asset-row {
+	display: table;
+	table-layout: fixed;
+	background-color: #f6f6f6;
+	width: 100%;
+}
+.asset-row > div {
+	display: table-row;
+}
+.asset-row .col-lg, 
+.asset-row .col-sm {
+	display: table-cell;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	border-top: 1px solid white;
+	box-sizing: border-box;
+	vertical-align: top;
+	padding: 15px;
+}
+.asset-row .col-sm { width: 20%; }
+.asset-row .col-lg { width: 40%; }
+
+.asset-condition,
+.asset-warranty {
+	color: white;
+	text-align: center;
+}
+.asset-condition .asset-label,
+.asset-warranty .asset-label {
+	color: white;
+}
+.asset-condition { background-color: #f5b5b9; }
+.asset-warranty  { background-color: #4682b4; }
+
+.asset-wos > div {
+	float: left;
+}
+.asset-wos > div:nth-child(1),
+.asset-wos > div:nth-child(2) {
+	box-sizing: border-box;
+	width: 50%;
+}
+.asset-wos > div:nth-child(1) { padding-right: 7px; }
+.asset-wos > div:nth-child(2) { padding-left: 8px; }
+
+.asset-bars {
+	line-height: 18px;
+}
+.asset-bars > .asset-label,
+.asset-bars > span {
+	display: inline-block;
+	margin-left: -4px;
+	text-align: right;
+}
+.asset-bars .asset-label { 
+	width: 42%; 
+	white-space: nowrap;
+}
+.asset-bars > span:nth-child(2) { 
+	width: 23%; 
+}
+.asset-bars > span:nth-child(3) { 
+	width: 35%; 
+	text-align: left; 
+}
+.asset-bar {
+	padding-left: 8px;
+	box-sizing: border-box;
+}
+.asset-bar > div {
+	display: inline-block;
+	width: 0%;
+	background-color: #999;
+	height: 10px;
+	text-align: left;
+}
+.asset-bar.width-25  > div { width: 25%;  }
+.asset-bar.width-50  > div { width: 50%;  }
+.asset-bar.width-75  > div { width: 75%;  }
+.asset-bar.width-100 > div { width: 100%; }
+
+.uppercase {
+	text-transform: uppercase;
+}

@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <title>Your ASP.NET application</title>
+    <script type='text/javascript' src='Scripts/knockout-min.js'></script>
+
+    <style>
+ .asset-toggle, 
+ .asset-content { 
+ 	margin-left: -13px; 
+ } 
+ .asset-toggle { 
+ 	cursor: pointer; 
+ 	padding: 5px 15px 2px 15px; 
+ 	border-top-right-radius: 3px; 
+ 	border-top-left-radius: 3px; 
+ 	display: inline-block; 
+ 	background-color: #f6f6f6; 
+ 	color: #999; 
+ } 
+ .asset-toggle .fa-caret-right { 
+ 	font-size: 16px; 
+ 	margin-right: 5px; 
+ 	margin-left: 0; 
+ 
+ 	transform: rotate(0); 
+ 	transition: transform 0.35s;	 
+ } 
+ .asset-toggle.collapsed { 
+ 	background-color: transparent; 
+ } 
+ .asset-toggle.collapsed .fa-caret-right { 
+ 	transform: rotate(90deg); 
+ } 
+ 
+
+ .asset-toggle .toggle-text { 
+ 	color: steelblue; 
+ } 
+ 
+
+ .asset-content .asset-label {  
+ 	color: #999;  
+ 	display: block; 
+ 	margin-bottom: 0; 
+ 	font-size: 11px; 
+ } 
+ .asset-row { 
+ 	display: table; 
+ 	table-layout: fixed; 
+ 	background-color: #f6f6f6; 
+ 	width: 100%; 
+ } 
+ .asset-row > div { 
+ 	display: table-row; 
+ } 
+ .asset-row .col-lg,  
+ .asset-row .col-sm { 
+ 	display: table-cell; 
+ 	border-left: 1px solid white; 
+ 	border-right: 1px solid white; 
+ 	border-top: 1px solid white; 
+ 	box-sizing: border-box; 
+ 	vertical-align: top; 
+ 	padding: 15px; 
+ } 
+ .asset-row .col-sm { width: 20%; } 
+ .asset-row .col-lg { width: 40%; } 
+ 
+
+ .asset-condition, 
+ .asset-warranty { 
+ 	color: white; 
+ 	text-align: center; 
+ } 
+ .asset-condition .asset-label, 
+ .asset-warranty .asset-label { 
+ 	color: white; 
+ } 
+ .asset-condition { background-color: #f5b5b9; } 
+ .asset-warranty  { background-color: #4682b4; } 
+ 
+
+ .asset-wos > div { 
+ 	float: left; 
+ } 
+ .asset-wos > div:nth-child(1), 
+ .asset-wos > div:nth-child(2) { 
+ 	box-sizing: border-box; 
+ 	width: 50%; 
+ } 
+ .asset-wos > div:nth-child(1) { padding-right: 7px; } 
+ .asset-wos > div:nth-child(2) { padding-left: 8px; } 
+ 
+
+ .asset-bars { 
+ 	line-height: 18px; 
+ } 
+ .asset-bars > .asset-label, 
+ .asset-bars > span { 
+ 	display: inline-block; 
+ 	margin-left: -4px; 
+ 	text-align: right; 
+ } 
+ .asset-bars .asset-label {  
+ 	width: 42%;  
+ 	white-space: nowrap; 
+ } 
+ .asset-bars > span:nth-child(2) {  
+ 	width: 23%;  
+ } 
+ .asset-bars > span:nth-child(3) {  
+ 	width: 35%;  
+ 	text-align: left;  
+ } 
+ .asset-bar { 
+ 	padding-left: 8px; 
+ 	box-sizing: border-box; 
+ } 
+ .asset-bar > div { 
+ 	display: inline-block; 
+ 	width: 0%; 
+ 	background-color: #999; 
+ 	height: 10px; 
+ 	text-align: left; 
+ } 
+ .asset-bar.width-25  > div { width: 25%;  } 
+ .asset-bar.width-50  > div { width: 50%;  } 
+ .asset-bar.width-75  > div { width: 75%;  } 
+ .asset-bar.width-100 > div { width: 100%; } 
+ 
+
+ .uppercase { 
+ 	text-transform: uppercase; 
+ } 
+
+ 
+.asset-toggle1 > .fa-caret-right { 
+ 	font-size: 16px; 
+ 	margin-right: 5px; 
+ 	margin-left: 0; 
+ 
+ 	transform: rotate(0); 
+ 	transition: transform 0.35s;	 
+ } 
+ .asset-content1
+ {
+     display: none;
+ }
+ .asset-toggle1
+ {
+    cursor: pointer;
+ 	padding: 5px 0px 2px 0px; 
+ 	border-top-right-radius: 3px; 
+ 	border-top-left-radius: 3px; 
+ 	display: inline-block; 
+ }
+.asset-toggle1 > .toggle-text
+{
+  	color: steelblue; 
+}
+
+
+    </style>
+</head>
+<body>
+
+     <!-- Asset Intelligence -->
+    <div class="asset-intelligence">
+
+
+        <div class='asset-toggle1'data-bind='click: function(data){this.AssetInfo(123)}'>
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+            <span class="toggle-text" id='toogle-text'>
+                <strong>Asset Intelligence</strong>
+            </span>
+        </div>
+
+        <i id='spinner-<%=rsProp("ippid")%>' class="fa fa-spinner fa-spin" style="font-size:20px; color:steelblue; display:none;"></i>
+
+        <div class='asset-content1' id='asset-'>
+            <div class="asset-row">
+                <div>
+                    <div class='col-lg'>
+                        <div class='uppercase'><strong><a href='#'>Heater/Air Conditioner With Long Type Name</a></strong></div>
+                        <br />
+                        <label class='asset-label'>Tag ID</label>
+                        <a href="#" name="TagIDt">RTU01</a>
+                    </div>
+                    <div class='col-sm asset-condition'>
+                        <label class='asset-label'>Condition</label>
+                        <div><strong data-bind="visible: WOs().length > 0, text: WOs()[0]">Poor</strong></div>
+                        <br />
+                        <label class='asset-label'>Updated</label>
+                        <div class='uppercase'>Mar 28 2016</div>
+                    </div>
+                    <div class='col-sm asset-warranty'>
+                        <label class='asset-label'>Warranty</label>
+                        <div><strong data-bind="text: waranty">NONE</strong></div>
+                        <br />
+                        <label class='asset-label'>Expires</label>
+                        <strong class='uppercase'>Jan 01 2018</strong>
+                    </div>
+                    <div class='col-sm'>
+                        <label class='asset-label'>Age</label>
+                        <div><strong>11 yrs, 8 mon</strong></div>
+                        <br />
+                        <label class='asset-label'>Life Expected</label>
+                        <strong>12 yrs</strong>
+                    </div>
+                </div>
+            </div>
+            <div class='asset-row'>
+                <div>
+                    <div class='col-lg asset-wos'>
+                        <div>
+                            <label class='asset-label'>Completed Work Orders</label>
+                            <div><strong>16,931 usd</strong></div>
+                            <a href='#'>View 31</a>
+                        </div>
+                        <div>
+                            <label class='asset-label'>In-Progress Work Orders</label>
+                            <div><strong>1,844 usd</strong></div>
+                            <a href='#'>View 1</a>
+                        </div>
+                    </div>
+                    <div class='col-lg'>
+
+
+                        <div class='asset-bars'>
+                            <label class='asset-label'>Total Spend</label>
+                            <span><strong>18,931</strong></span>
+
+
+                            <!--
+                            the horizontal grey bar is currently set up to use 1 of 4 css classes for its width
+                            in 25% increments:
+                            width-25
+                            width-50
+                            width-75
+                            width-100
+                            (or no width class for default 0%)
+                            -->
+                            <span class="asset-bar width-100">
+                                <div></div>
+                            </span>
+                        </div>
+                        <div class='asset-bars'>
+                            <label class='asset-label'>Initial Cost</label>
+                            <span><strong>9,724</strong></span>
+                            <span class="asset-bar width-50">
+                                <div></div>
+                            </span>
+                        </div>
+                        <div class='asset-bars'>
+                            <label class='asset-label'>This Proposals</label>
+                            <span><strong>5,852</strong></span>
+                            <span class="asset-bar width-25">
+                                <div></div>
+                            </span>
+                        </div>
+
+
+                    </div>
+                    <div class='col-sm'>
+                        <label class='asset-label'>All Proposals for this Asset</label>
+                        <div><strong>1,844 usd</strong></div>
+                        <a href='#'>View 6</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Asset Intelligence --> 
+</body>
+</html>
+
+<p>First name: <strong data-bind="text: firstName"></strong></p>
+<p>Last name: <strong data-bind="text: lastName"></strong></p>
+
+Today's message is: <span data-bind="text: myMessage"></span>
+
+<script type="text/javascript">
+ 
+    //JS knockout
+    function AppViewModel() {
+        this.firstName = ko.observable("Bert");
+        this.lastName = ko.observable("Bertington");
+        this.myMessage = ko.observable('');
+        this.waranty = ko.observable('18month');
+
+        this.WOs = ko.observableArray([]);
+
+
+        this.AssetInfo = function (propId) {
+
+            this.waranty = "12345";
+            this.WOs([80870701,80863739]);
+
+            //jQuery
+//            $('#asset-').toggle("slow"); //animation
+            $('#asset-').toggle();
+
+            //style
+            if ($("#asset-").css('display') == 'block') {
+                $('.asset-toggle1 > .fa-caret-right').css({ 'transform': 'rotate(90deg)' });
+                $('.asset-toggle1').css({ 'background-color': '#f6f6f6' });
+            }
+            else
+            {
+                $('.asset-toggle1 > .fa-caret-right').css({ 'transform': 'rotate(0)' });
+                $('.asset-toggle1').css({ 'background-color': 'transparent' });
+            }
+            if ($('#asset-').is(':visible')) {
+            }
+            var dd = $('#asset-').attr('style').indexOf('display: block');
+            if ($('#asset-').attr('style').indexOf('display') !== -1) {
+                //...
+            }
+        }
+    }
+
+    // Activates knockout.js
+    ko.applyBindings(new AppViewModel());
+
+
+</script>
