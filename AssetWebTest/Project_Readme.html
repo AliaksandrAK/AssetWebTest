@@ -300,8 +300,15 @@ Today's message is: <span data-bind="text: myMessage"></span>
 
         this.AssetInfo = function (propId) {
 
-            this.waranty = "12345";
-            this.WOs([80870701,80863739]);
+            var inmiu = 123;
+            var n = inmiu.toString();
+            this.waranty(n + " USD");
+            this.WOs([80870701, 80863739]);
+
+            var now = new Date();
+            var gg=now.toDateString();
+            var javascriptVar = '<%=String.Format("{0:MM/dd/yyyy}", now); %>';
+            this.waranty(gg);
 
             //jQuery
 //            $('#asset-').toggle("slow"); //animation
