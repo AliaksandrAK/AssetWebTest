@@ -175,7 +175,7 @@
     <div class="asset-intelligence">
 
 
-        <div class='asset-toggle1'data-bind='click: function(data){this.AssetInfo(123)}'>
+        <div class='asset-toggle1' data-bind='click: function(data){this.AssetInfo(123)}'>
             <i class="fa fa-caret-right" aria-hidden="true"></i>
             <span class="toggle-text" id='toogle-text'>
                 <strong>Asset Intelligence</strong>
@@ -281,18 +281,13 @@
 </body>
 </html>
 
-<p>First name: <strong data-bind="text: firstName"></strong></p>
-<p>Last name: <strong data-bind="text: lastName"></strong></p>
-
 Today's message is: <span data-bind="text: myMessage"></span>
 
 <script type="text/javascript">
  
     //JS knockout
     function AppViewModel() {
-        this.firstName = ko.observable("Bert");
-        this.lastName = ko.observable("Bertington");
-        this.myMessage = ko.observable('');
+        this.myMessage = ko.observable('How are you');
         this.waranty = ko.observable('18month');
 
         this.WOs = ko.observableArray([]);
@@ -318,6 +313,10 @@ Today's message is: <span data-bind="text: myMessage"></span>
             if ($("#asset-").css('display') == 'block') {
                 $('.asset-toggle1 > .fa-caret-right').css({ 'transform': 'rotate(90deg)' });
                 $('.asset-toggle1').css({ 'background-color': '#f6f6f6' });
+
+                //change with depends on value
+                $('.asset-bar.width-100 > div').css({ 'width': '50' });
+
             }
             else
             {
