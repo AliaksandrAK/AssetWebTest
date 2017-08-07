@@ -234,7 +234,7 @@
 
 
                         <div class='asset-bars'>
-                            <label class='asset-label'>Total Spend</label>
+                            <label class='asset-label'>Initial Cost</label>
                             <span><strong>18,931</strong></span>
 
 
@@ -252,7 +252,7 @@
                             </span>
                         </div>
                         <div class='asset-bars'>
-                            <label class='asset-label'>Initial Cost</label>
+                            <label class='asset-label'>Total Spend</label>
                             <span><strong>9,724</strong></span>
                             <span class="asset-bar width-50">
                                 <div></div>
@@ -310,13 +310,9 @@ Today's message is: <span data-bind="text: myMessage"></span>
             $('#asset-').toggle();
 
             //style
-            var wS = '0';
             if ($("#asset-").css('display') == 'block') {
                 $('.asset-toggle1 > .fa-caret-right').css({ 'transform': 'rotate(90deg)' });
                 $('.asset-toggle1').css({ 'background-color': '#f6f6f6' });
-
-                //change with depends on value
-                $('.asset-bar.width-100 > div').css({ 'width': wS });
 
             }
             else
@@ -330,6 +326,50 @@ Today's message is: <span data-bind="text: myMessage"></span>
             if ($('#asset-').attr('style').indexOf('display') !== -1) {
                 //...
             }
+
+            //change with depends on value. Default width-100 - InitialCost, width-50 - total spend
+            //width-25 - Amount
+            var InitialCost = 50;
+            var TotalSpend = 180;
+            var Amount = 150;
+            var w100 = '100%';
+            var w50 = '50%';
+            var w25 = '25%';
+            if (InitialCost > TotalSpend &&
+                InitialCost > Amount) {
+                w100 = '100%';
+                if (TotalSpend < Amount) {
+                    w50 = '25%';
+                    w25 = '50%';
+                }
+            }
+            if (TotalSpend > InitialCost &&
+                TotalSpend > Amount) {
+                w50 = '100%';
+                if (InitialCost > Amount) {
+                    w100 = '50%';
+                    w25 = '25%';
+                } else {
+                    w100 = '25%';
+                    w25 = '50%';
+                }
+            }
+            if (Amount > InitialCost &&
+                Amount > TotalSpend) {
+                w25 = '100%';
+                if (InitialCost > Amount) {
+                    w100 = '50%';
+                    w50 = '25%';
+                } else {
+                    w100 = '25%';
+                    w50 = '50%';
+                }
+            }
+
+            $('.asset-bar.width-100 > div').css({ 'width': w100 });
+            $('.asset-bar.width-50 > div').css({ 'width': w50 });
+            $('.asset-bar.width-25 > div').css({ 'width': w25 });
+
         }
     }
 
