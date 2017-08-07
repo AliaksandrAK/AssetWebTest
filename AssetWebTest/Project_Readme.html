@@ -310,12 +310,13 @@ Today's message is: <span data-bind="text: myMessage"></span>
             $('#asset-').toggle();
 
             //style
+            var wS = '0';
             if ($("#asset-").css('display') == 'block') {
                 $('.asset-toggle1 > .fa-caret-right').css({ 'transform': 'rotate(90deg)' });
                 $('.asset-toggle1').css({ 'background-color': '#f6f6f6' });
 
                 //change with depends on value
-                $('.asset-bar.width-100 > div').css({ 'width': '50' });
+                $('.asset-bar.width-100 > div').css({ 'width': wS });
 
             }
             else
