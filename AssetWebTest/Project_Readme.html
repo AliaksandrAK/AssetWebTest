@@ -4,170 +4,12 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="Content/deAsset.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <title>Your ASP.NET application</title>
     <script type='text/javascript' src='Scripts/knockout-min.js'></script>
 
-    <style>
- .asset-toggle, 
- .asset-content { 
- 	margin-left: -13px; 
- } 
- .asset-toggle { 
- 	cursor: pointer; 
- 	padding: 5px 15px 2px 15px; 
- 	border-top-right-radius: 3px; 
- 	border-top-left-radius: 3px; 
- 	display: inline-block; 
- 	background-color: #f6f6f6; 
- 	color: #999; 
- } 
- .asset-toggle .fa-caret-right { 
- 	font-size: 16px; 
- 	margin-right: 5px; 
- 	margin-left: 0; 
- 
- 	transform: rotate(0); 
- 	transition: transform 0.35s;	 
- } 
- .asset-toggle.collapsed { 
- 	background-color: transparent; 
- } 
- .asset-toggle.collapsed .fa-caret-right { 
- 	transform: rotate(90deg); 
- } 
- 
-
- .asset-toggle .toggle-text { 
- 	color: steelblue; 
- } 
- 
-
- .asset-content .asset-label {  
- 	color: #999;  
- 	display: block; 
- 	margin-bottom: 0; 
- 	font-size: 11px; 
- } 
- .asset-row { 
- 	display: table; 
- 	table-layout: fixed; 
- 	background-color: #f6f6f6; 
- 	width: 100%; 
- } 
- .asset-row > div { 
- 	display: table-row; 
- } 
- .asset-row .col-lg,  
- .asset-row .col-sm { 
- 	display: table-cell; 
- 	border-left: 1px solid white; 
- 	border-right: 1px solid white; 
- 	border-top: 1px solid white; 
- 	box-sizing: border-box; 
- 	vertical-align: top; 
- 	padding: 15px; 
- } 
- .asset-row .col-sm { width: 20%; } 
- .asset-row .col-lg { width: 40%; } 
- 
-
- .asset-condition, 
- .asset-warranty { 
- 	color: white; 
- 	text-align: center; 
- } 
- .asset-condition .asset-label, 
- .asset-warranty .asset-label { 
- 	color: white; 
- } 
- .asset-condition { background-color: #f5b5b9; } 
- .asset-warranty  { background-color: #4682b4; } 
- 
-
- .asset-wos > div { 
- 	float: left; 
- } 
- .asset-wos > div:nth-child(1), 
- .asset-wos > div:nth-child(2) { 
- 	box-sizing: border-box; 
- 	width: 50%; 
- } 
- .asset-wos > div:nth-child(1) { padding-right: 7px; } 
- .asset-wos > div:nth-child(2) { padding-left: 8px; } 
- 
-
- .asset-bars { 
- 	line-height: 18px; 
- } 
- .asset-bars > .asset-label, 
- .asset-bars > span { 
- 	display: inline-block; 
- 	margin-left: -4px; 
- 	text-align: right; 
- } 
- .asset-bars .asset-label {  
- 	width: 42%;  
- 	white-space: nowrap; 
- } 
- .asset-bars > span:nth-child(2) {  
- 	width: 23%;  
- } 
- .asset-bars > span:nth-child(3) {  
- 	width: 35%;  
- 	text-align: left;  
- } 
- .asset-bar { 
- 	padding-left: 8px; 
- 	box-sizing: border-box; 
- } 
- .asset-bar > div { 
- 	display: inline-block; 
- 	width: 0%; 
- 	background-color: #999; 
- 	height: 10px; 
- 	text-align: left; 
- } 
- .asset-bar.width-25  > div { width: 25%;  } 
- .asset-bar.width-50  > div { width: 50%;  } 
- .asset-bar.width-75  > div { width: 75%;  } 
- .asset-bar.width-100 > div { width: 100%; } 
- 
-
- .uppercase { 
- 	text-transform: uppercase; 
- } 
-
- 
-.asset-toggle1 > .fa-caret-right { 
- 	font-size: 16px; 
- 	margin-right: 5px; 
- 	margin-left: 0; 
- 
- 	transform: rotate(0); 
- 	transition: transform 0.35s;	 
- } 
- .asset-content1
- {
-     display: none;
- }
- .asset-toggle1
- {
-    cursor: pointer;
- 	padding: 5px 0px 2px 0px; 
- 	border-top-right-radius: 3px; 
- 	border-top-left-radius: 3px; 
- 	display: inline-block; 
- }
-.asset-toggle1 > .toggle-text
-{
-  	color: steelblue; 
-}
-
-
-    </style>
 </head>
 <body>
 
@@ -175,7 +17,7 @@
     <div class="asset-intelligence">
 
 
-        <div class='asset-toggle1' data-bind='click: function(data){this.AssetInfo(123)}'>
+        <div class='asset-toggle' data-bind='click: function(data){this.AssetInfo(123)}'>
             <i class="fa fa-caret-right" aria-hidden="true"></i>
             <span class="toggle-text" id='toogle-text'>
                 <strong>Asset Intelligence</strong>
@@ -184,7 +26,7 @@
 
         <i id='spinner-<%=rsProp("ippid")%>' class="fa fa-spinner fa-spin" style="font-size:20px; color:steelblue; display:none;"></i>
 
-        <div class='asset-content1' id='asset-'>
+        <div class='asset-content' id='asset-'>
             <div class="asset-row">
                 <div>
                     <div class='col-lg'>
@@ -209,10 +51,11 @@
                     </div>
                     <div class='col-sm'>
                         <label class='asset-label'>Age</label>
-                        <div><strong>11 yrs, 8 mon</strong></div>
+                        <div><strong>Jan 01 2018</strong></div>
                         <br />
                         <label class='asset-label'>Life Expected</label>
-                        <strong>12 yrs</strong>
+                        <strong>Jan 01 2018</strong>
+                        <br />
                     </div>
                 </div>
             </div>

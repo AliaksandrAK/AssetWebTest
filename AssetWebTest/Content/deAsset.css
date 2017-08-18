@@ -1,0 +1,153 @@
+﻿/* Asset Intelligence */
+
+/*.asset-intelligence {
+    margin-left: 2px;
+}
+*/
+
+
+.asset-toggle {
+    cursor: pointer;
+ 	padding: 5px 0px 2px 0px; 
+ 	border-top-right-radius: 3px; 
+ 	border-top-left-radius: 3px; 
+ 	display: inline-block; 
+ }
+.asset-toggle > .fa-caret-right { 
+ 	font-size: 16px; 
+ 	margin-right: 5px; 
+ 	margin-left: 2px; 
+	color: #999;
+ 
+ 	transform: rotate(0); 
+ 	transition: transform 0.35s;	 
+ } 
+
+.asset-toggle > .toggle-text {
+  	color: steelblue; 
+}
+.asset-content {
+    display: none;
+}
+
+/* Asset items */
+.asset-content .asset-label { 
+	color: #999; 
+	display: block;
+	margin-bottom: 0;
+	font-size: 11px;
+    line-height: 14px; 
+}
+
+.asset-row {
+	display: table;
+	table-layout: fixed;
+	background-color: #f6f6f6;
+	width: 100%;
+}
+.asset-row > div {
+	display: table-row;
+}
+.asset-row .col-lg, 
+.asset-row .col-sm {
+	display: table-cell;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	border-top: 1px solid white;
+	box-sizing: border-box;
+	vertical-align: top;
+	padding: 15px;
+}
+.asset-row .col-sm { width: 20%; }
+.asset-row .col-lg { width: 40%; }
+
+.asset-condition,
+.asset-warranty {
+	color: white;
+	text-align: center;
+}
+.asset-condition .asset-label,
+.asset-warranty .asset-label {
+	color: white;
+}
+.asset-condition { background-color: #f5b5b9; }
+.asset-warranty  { background-color: #4682b4; }
+
+.asset-wos > div {
+	float: left;
+}
+.asset-wos > div:nth-child(1),
+.asset-wos > div:nth-child(2) {
+	box-sizing: border-box;
+	width: 50%;
+}
+.asset-wos > div:nth-child(1) { padding-right: 7px; }
+.asset-wos > div:nth-child(2) { padding-left: 8px; }
+
+.asset-bars {
+	line-height: 21px;
+}
+.asset-bars > .asset-label,
+.asset-bars > span {
+	display: inline-block;
+	margin-left: -4px;
+	text-align: right;
+}
+.asset-bars .asset-label { 
+	width: 40%; 
+	white-space: nowrap;
+    text-align: right;
+}
+.asset-bars > span:nth-child(2) { 
+	width: 40%; 
+    text-align: right; 
+}
+.asset-bars > span:nth-child(3) { 
+	width: 20%; 
+	text-align: left; 
+}
+.asset-bar {
+	padding-left: 8px;
+	box-sizing: border-box;
+}
+.asset-bar > div {
+	display: inline-block;
+	width: 0%;
+	background-color: #999;
+	height: 10px;
+	text-align: left;
+}
+.asset-bar.width-25  > div { width: 25%;  }
+.asset-bar.width-50  > div { width: 50%;  }
+.asset-bar.width-75  > div { width: 75%;  }
+.asset-bar.width-100 > div { width: 100%; }
+
+.uppercase {
+	text-transform: uppercase;
+}
+.block-bottom-spacing-8 { 
+    margin-bottom: 8px; 
+}  
+.asset-link {
+    cursor: pointer !important;
+}
+
+
+.asset-label-value {
+  text-align: center;
+  background-color: red; 
+  width: 50px;
+}
+
+.asset-row .col-sm1 {
+	display: table-cell;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	border-top: 1px solid white;
+	box-sizing: border-box;
+	vertical-align: top;
+	padding: 15px;
+}
+.asset-label-life {
+    color: red;
+}
