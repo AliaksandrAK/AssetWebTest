@@ -71,6 +71,13 @@
 	color: white;
 }
 .asset-condition { background-color: #f5b5b9; }
+
+.asset-condition.broken    { background-color: #ccc; }
+.asset-condition.poor      { background-color: #f5b5b9; }
+.asset-condition.average   { background-color: #f5f5b9; }
+.asset-condition.good      { background-color: #baf5b9; }
+.asset-condition.excellent { background-color: #b2d1ff; }
+
 .asset-warranty  { background-color: #4682b4; }
 
 .asset-wos > div {
@@ -122,6 +129,7 @@
 .asset-bar.width-75  > div { width: 75%;  }
 .asset-bar.width-100 > div { width: 100%; }
 
+
 .uppercase {
 	text-transform: uppercase;
 }
@@ -150,4 +158,5 @@
 }
 .asset-label-life {
     color: red;
+	background-color: green;
 }

@@ -37,7 +37,7 @@
                     </div>
                     <div class='col-sm asset-condition'>
                         <label class='asset-label'>Condition</label>
-                        <div><strong data-bind="visible: WOs().length > 0, text: WOs()[0]">Poor</strong></div>
+                        <div><strong>Poor</strong></div>
                         <br />
                         <label class='asset-label'>Updated</label>
                         <div class='uppercase'>Mar 28 2016</div>
@@ -54,7 +54,7 @@
                         <div><strong>Jan 01 2018</strong></div>
                         <br />
                         <label class='asset-label'>Life Expected</label>
-                        <strong>Jan 01 2018</strong>
+                        <strong class="asset-label-life">Jan 01 2018</strong>
                         <br />
                     </div>
                 </div>
@@ -90,21 +90,21 @@
                             width-100
                             (or no width class for default 0%)
                             -->
-                            <span class="asset-bar width-100">
+                            <span class="asset-bar" id="asset-bar-initial">
                                 <div></div>
                             </span>
                         </div>
                         <div class='asset-bars'>
                             <label class='asset-label'>Total Spend</label>
                             <span><strong>9,724</strong></span>
-                            <span class="asset-bar width-50">
+                            <span class="asset-bar" id="asset-bar-total">
                                 <div></div>
                             </span>
                         </div>
                         <div class='asset-bars'>
                             <label class='asset-label'>This Proposals</label>
                             <span><strong>5,852</strong></span>
-                            <span class="asset-bar width-25">
+                            <span class="asset-bar" id="asset-bar-prop">
                                 <div></div>
                             </span>
                         </div>
@@ -148,6 +148,8 @@ Today's message is: <span data-bind="text: myMessage"></span>
             var javascriptVar = '<%=String.Format("{0:MM/dd/yyyy}", now); %>';
             this.waranty(gg);
 
+            $('#asset- .asset-condition').addClass("broken");
+
             //jQuery
 //            $('#asset-').toggle("slow"); //animation
             $('#asset-').toggle();
@@ -172,47 +174,48 @@ Today's message is: <span data-bind="text: myMessage"></span>
 
             //change with depends on value. Default width-100 - InitialCost, width-50 - total spend
             //width-25 - Amount
-            var InitialCost = 50;
-            var TotalSpend = 180;
-            var Amount = 150;
-            var w100 = '100%';
-            var w50 = '50%';
-            var w25 = '25%';
-            if (InitialCost > TotalSpend &&
-                InitialCost > Amount) {
-                w100 = '100%';
+            var InitialCost = 18931;
+            var TotalSpend = 9724;
+            var Amount = 5852;
+            var wInit = '100';
+            var wTotal = '50';
+            var wProp = '25';
+            if (InitialCost > TotalSpend && InitialCost > Amount) {
+                wInit = '100';
                 if (TotalSpend < Amount) {
-                    w50 = '25%';
-                    w25 = '50%';
+                    wTotal = '25';
+                    wProp = '50';
                 }
             }
-            if (TotalSpend > InitialCost &&
-                TotalSpend > Amount) {
-                w50 = '100%';
+            if (TotalSpend > InitialCost && TotalSpend > Amount) {
+                wTotal = '100';
                 if (InitialCost > Amount) {
-                    w100 = '50%';
-                    w25 = '25%';
+                    wInit = '50';
+                    wProp = '25';
                 } else {
-                    w100 = '25%';
-                    w25 = '50%';
+                    wInit = '25';
+                    wProp = '50';
                 }
             }
-            if (Amount > InitialCost &&
-                Amount > TotalSpend) {
-                w25 = '100%';
+            if (Amount > InitialCost && Amount > TotalSpend) {
+                wProp = '100';
                 if (InitialCost > Amount) {
-                    w100 = '50%';
-                    w50 = '25%';
+                    wInit = '50';
+                    wTotal = '25';
                 } else {
-                    w100 = '25%';
-                    w50 = '50%';
+                    wInit = '25';
+                    wTotal = '50';
                 }
             }
 
-            $('.asset-bar.width-100 > div').css({ 'width': w100 });
-            $('.asset-bar.width-50 > div').css({ 'width': w50 });
-            $('.asset-bar.width-25 > div').css({ 'width': w25 });
+            $('#asset-bar-initial').addClass("width-"+wInit);
+            $('#asset-bar-total').addClass("width-"+wTotal);
+            $('#asset-bar-prop').addClass("width-"+wProp);
 
+            //$('.asset-bar.width-100 > div').css({ 'width': w100 });
+            //$('.asset-bar.width-50 > div').css({ 'width': w50 });
+            //$('.asset-bar.width-25 > div').css({ 'width': w25 });
+            //$('#asset-bar-initial').addClass("width-25");
 
             var params = {
                 'ProposalId': propId
