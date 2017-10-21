@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using System.IO;
+using System.Data;
 
 namespace AssetWebTest.Controllers
 {
@@ -47,6 +49,74 @@ namespace AssetWebTest.Controllers
             var jsonPR = jsonSerialiser.Serialize(aTest);
 
             return new JsonResult { Data = new { jsonPR, isSuccess = true }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult GetLineItemReport(string filterExpression, string locNotes)
+        {
+            try
+            {
+
+                //HttpContext.Response.Clear();
+                //HttpContext.Response.ClearContent();
+                //HttpContext.Response.ClearHeaders();
+                //HttpContext.Response.Buffer = true;
+                //HttpContext.Response.ContentType = "application/ms-excel";
+                //HttpContext.Response.AddHeader("Content-Disposition", "attachment;filename=Reports.xls");
+
+                //application/vnd.ms-excel, text/plain
+                // var contentType = filePath.Contains(".xlsx") ? "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" : "text/plain";
+
+                //File(memoryStream.GetBuffer(), "text/plain", "file.txt");
+                //ServiceChannel.UI.ClassicAsp.Subscribers\Areas\ServiceProviders\Controllers\ServiceProvidersController.cs
+                List<string> reportList = new List<string>();
+                reportList.Add("Column1" + "\t" + "Column2");
+                reportList.Add("111" + "\t" + "222");
+
+
+                //WAY 3
+                //DataTable dt = Helpers.Test.CreateTemplatesDataTable(reportList);
+                //Helpers.Test.ExporttoExcel(dt);
+
+
+                //WAY 1
+                
+                byte[] buffer;
+                using (var memstream = new MemoryStream())
+                {
+                    using (var fileWr = new StreamWriter(memstream))
+                    {
+                        foreach(var sLine in reportList)
+                        {
+                            fileWr.WriteLine(sLine);
+
+                        }
+                        fileWr.Flush();
+                    }
+                    buffer = memstream.ToArray();
+                }
+                var fileInfo = File(buffer, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                fileInfo.FileDownloadName = "ProposalLineItem_" + DateTime.Now.ToShortDateString() + ".xls";
+                return fileInfo;
+                
+                //WAY 2
+                /*
+                System.IO.MemoryStream memoryStream = new System.IO.MemoryStream();
+                System.IO.TextWriter tw = new System.IO.StreamWriter(memoryStream);
+                tw.WriteLine("filterExpression" + ", " + locNotes);
+                tw.Flush();
+                tw.Close();
+                var fileInfo = File(memoryStream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                fileInfo.FileDownloadName = "ProposalLineItem_" + DateTime.Now.ToShortDateString() + ".xls";
+                return fileInfo;
+                */
+            }
+            catch (System.Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

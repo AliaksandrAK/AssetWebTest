@@ -1,0 +1,301 @@
+﻿        public static DataTable CreateTemplatesDataTable(List<string> datas)
+        {
+            string DuplicateColumnMarker = "***";
+            var dataTable = new DataTable();
+
+            var datasArray = datas.Select(data => data.Split('\t').ToList()).OrderByDescending(x => x.Count).ToList();
+            var headers = datas.First().Split('\t');
+
+            foreach (var header in headers)
+            {
+                var isDuplicate = false;
+                foreach (var column in dataTable.Columns.Cast<object>().Where(column => column.ToString().Replace(" ", "").ToLower() == header.Replace(" ", "").ToLower()))
+                {
+                    isDuplicate = true;
+                }
+
+                dataTable.Columns.Add(isDuplicate
+                    ? string.Format("{0}{1}", header.Replace(" ", ""), DuplicateColumnMarker)
+                    : header.Replace(" ", ""));
+            }
+
+            for (int i = 1; i < datasArray.Count; i++)
+            {
+                var dataString = datasArray[i];
+                dataTable.Rows.Add(dataString.ToArray());
+            }
+
+            return dataTable;
+        }
+        public void ExporttoExcel(DataTable table)
+        {
+            HttpContext.Response.Clear();
+            HttpContext.Response.ClearContent();
+            HttpContext.Response.ClearHeaders();
+            HttpContext.Response.Buffer = true;
+            HttpContext.Response.ContentType = "application/ms-excel";
+            HttpContext.Response.Write(@"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.0 Transitional//EN"">");
+            HttpContext.Response.AddHeader("Content-Disposition", "attachment;filename=Reports.xls");
+
+            HttpContext.Response.Charset = "utf-8";
+            HttpContext.Response.ContentEncoding = System.Text.Encoding.GetEncoding("windows-1250");
+            //sets font
+            HttpContext.Response.Write("<font style='font-size:10.0pt; font-family:Calibri;'>");
+            HttpContext.Response.Write("<BR><BR><BR>");
+            //sets the table border, cell spacing, border color, font of the text, background, foreground, font height
+            HttpContext.Response.Write("<Table border='1' bgColor='#ffffff' " +
+              "borderColor='#000000' cellSpacing='0' cellPadding='0' " +
+              "style='font-size:10.0pt; font-family:Calibri; background:white;'> <TR>");
+            //am getting my grid's column headers
+            int columnscount = table.Columns.Count;
+
+            for (int j = 0; j < columnscount; j++)
+            {      //write in new column
+                HttpContext.Response.Write("<Td>");
+                //Get column headers  and make it as bold in excel columns
+                HttpContext.Response.Write("<B>");
+                HttpContext.Response.Write(table.Columns[j].ColumnName);
+                HttpContext.Response.Write("</B>");
+                HttpContext.Response.Write("</Td>");
+            }
+            HttpContext.Response.Write("</TR>");
+            foreach (DataRow row in table.Rows)
+            {//write in new row
+                HttpContext.Response.Write("<TR>");
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    HttpContext.Response.Write("<Td>");
+                    HttpContext.Response.Write(row[i].ToString());
+                    HttpContext.Response.Write("</Td>");
+                }
+
+                HttpContext.Response.Write("</TR>");
+            }
+            HttpContext.Response.Write("</Table>");
+            HttpContext.Response.Write("</font>");
+            HttpContext.Response.Flush();
+            HttpContext.Response.End();
+        }
+		===========================================================================
+ dt = city.GetAllCity();//your datatable
+    string attachment = "attachment; filename=city.xls";
+    Response.ClearContent();
+    Response.AddHeader("content-disposition", attachment);
+    Response.ContentType = "application/vnd.ms-excel";
+    string tab = "";
+    foreach (DataColumn dc in dt.Columns)
+    {
+        Response.Write(tab + dc.ColumnName);
+        tab = "\t";
+    }
+    Response.Write("\n");
+    int i;
+    foreach (DataRow dr in dt.Rows)
+    {
+        tab = "";
+        for (i = 0; i < dt.Columns.Count; i++)
+        {
+            Response.Write(tab + dr[i].ToString());
+            tab = "\t";
+        }
+        Response.Write("\n");
+    }
+    Response.End();
+
+=============================
+
+ // Example data
+DataTable table = new DataTable();
+table.Columns.AddRange(new[]{ new DataColumn("Key"), new DataColumn("Value") });
+foreach (string name in Request.ServerVariables)
+    table.Rows.Add(name, Request.ServerVariables[name]);
+
+// This actually makes your HTML output to be downloaded as .xls file
+Response.Clear();
+Response.ClearContent();
+Response.ContentType = "application/octet-stream";
+Response.AddHeader("Content-Disposition", "attachment; filename=ExcelFile.xls");
+
+// Create a dynamic control, populate and render it
+GridView excel = new GridView();
+excel.DataSource = table;
+excel.DataBind();
+excel.RenderControl(new HtmlTextWriter(Response.Output));
+
+Response.Flush();
+Response.End();
+
+===============================
+dt = city.GetAllCity();//your datatable
+ using (XLWorkbook wb = new XLWorkbook())
+    {
+        wb.Worksheets.Add(dt);
+
+        Response.Clear();
+        Response.Buffer = true;
+        Response.Charset = "";
+        Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+        Response.AddHeader("content-disposition", "attachment;filename=GridView.xlsx");
+        using (MemoryStream MyMemoryStream = new MemoryStream())
+        {
+            wb.SaveAs(MyMemoryStream);
+            MyMemoryStream.WriteTo(Response.OutputStream);
+            Response.Flush();
+            Response.End();
+        }
+    }
+
+====================================
+ public void DTToExcel(DataTable dt)
+{
+    // dosya isimleri ileride aynı anda birden fazla kullanıcı aynı dosya üzerinde işlem yapmak ister düşüncesiyle guid yapıldı. 
+    string FileName = Guid.NewGuid().ToString();
+
+    FileInfo f = new FileInfo(Server.MapPath("Downloads") + string.Format("\\{0}.xlsx", FileName));
+    if (f.Exists)
+        f.Delete(); // delete the file if it already exist.
+
+    HttpResponse response = HttpContext.Current.Response;
+    response.Clear();
+    response.ClearHeaders();
+    response.ClearContent();
+    response.Charset = Encoding.UTF8.WebName;
+    response.AddHeader("content-disposition", "attachment; filename=" + FileName + ".xls");
+    response.AddHeader("Content-Type", "application/Excel");
+    response.ContentType = "application/vnd.xlsx";
+    //response.AddHeader("Content-Length", file.Length.ToString());
+
+
+    // create a string writer
+    using (StringWriter sw = new StringWriter())
+    {
+        using (HtmlTextWriter htw = new HtmlTextWriter(sw)) //datatable'a aldığımız sorguyu bir datagrid'e atayıp html'e çevir.
+        {
+            // instantiate a datagrid
+            DataGrid dg = new DataGrid();
+            dg.DataSource = dt;
+            dg.DataBind();
+            dg.RenderControl(htw);
+            response.Write(sw.ToString());
+            dg.Dispose();
+            dt.Dispose();
+            response.End();
+        }
+    }
+}
+
+
+===================================
+ try
+        {
+            DataTable dt = DS.Tables[0];
+            string attachment = "attachment; filename=log.xls";
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", attachment);
+            Response.ContentType = "application/vnd.ms-excel";
+            string tab = "";
+            foreach (DataColumn dc in dt.Columns)
+            {
+                Response.Write(tab + dc.ColumnName);
+                tab = "\t";
+            }
+            Response.Write("\n");
+            int i;
+            foreach (DataRow dr in dt.Rows)
+            {
+                tab = "";
+                for (i = 0; i < dt.Columns.Count; i++)
+                {
+                    Response.Write(tab + dr[i].ToString());
+                    tab = "\t";
+                }
+                Response.Write("\n");
+            }
+            Response.End();
+        }
+        catch (Exception Ex)
+        { }
+
+        ====================================
+            try
+            {
+                HttpResponse response = HttpContext.Current.Response;
+                response.Clear();
+                response.ClearContent();
+                response.ClearHeaders();
+                response.Buffer = true;
+                response.ContentType = MimeType(Path.GetExtension(FolderPath));
+                response.AddHeader("Content-Disposition", "attachment;filename=" + DownloadFileName);
+                byte[] data = File.ReadAllBytes(path);
+                response.BinaryWrite(data);
+                HttpContext.Current.ApplicationInstance.CompleteRequest();
+                response.End();
+            }
+
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+
+
+
+
+
+
+            baseUrl + "proposal/proposals/GetLineItemReport?filterExpression="
+      + propFilter + "&locNotes=" + selectedNotes.toString());
+
+
+
+
+      ==========================================================
+      $.ajax({
+         type: "POST",
+         url: "OrderDetail/_EditDescription", // the method we are calling
+         contentType: "application/json; charset=utf-8",
+         data: {id: theId, filename: theFilename, description: theDescript},
+         dataType: "json",
+         success: function (result) {
+             alert('Yay! It worked!');
+             // Or if you are returning something
+             alert('I returned... ' + result.WhateverIsReturning);                    
+         },
+         error: function (result) {
+             alert('Oh no :(');
+         }
+     });
+
+     ==============================================================================
+                     HttpContext.Response.Clear();
+                HttpContext.Response.ClearContent();
+                HttpContext.Response.ClearHeaders();
+                HttpContext.Response.Buffer = true;
+                HttpContext.Response.ContentType = "application/ms-excel";
+                HttpContext.Response.AddHeader("Content-Disposition", "attachment;filename=Reports.xls");
+
+                List<string> reportList = new List<string>();
+                                reportList.Add(filterExpression + "\t" + locNotes);
+                                reportList.Add("111" + "\t" + "222");
+ /*
+                                DataTable dt = CreateTemplatesDataTable(reportList);
+                                ExporttoExcel(dt);
+*/
+                                                byte[] buffer;
+                                                using (var memstream = new MemoryStream())
+                                                {
+                                                    using (var fileWr = new StreamWriter(memstream))
+                                                    {
+                                                        foreach (var sLine in reportList)
+                                                        {
+                                                            fileWr.WriteLine(sLine);
+
+                                                        }
+                                                        fileWr.Flush();
+                                                    }
+                                                    buffer = memstream.ToArray();
+                                                }
+                                                var fileInfo = File(buffer, "application/vnd.ms-excel");
+                                                fileInfo.FileDownloadName = "ProposalLineItem_" + DateTime.Now.ToShortDateString() + ".xls";
+                                                return fileInfo;
+
+====================================================================
