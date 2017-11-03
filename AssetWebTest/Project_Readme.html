@@ -9,7 +9,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <title>Your ASP.NET application</title>
     <script type='text/javascript' src='Scripts/knockout-min.js'></script>
+    <style>
+        #reportbutton {
+            cursor: pointer;
+        }
 
+            #reportbutton:active {
+                transform: translateY(4px);
+            }
+    </style>
 </head>
 <body>
 
@@ -139,7 +147,7 @@
         <tr>
             <td>
                 <div>
-                    <input type="button" name="LineItemReport" value=" Line Item Report " onClick="ExcelLineReport()">
+                    <input type="button" id="reportbutton" name="LineItemReport" value=" Line Item Report " onClick="ExcelLineReport()">
                 </div>
             </td>
         </tr>
