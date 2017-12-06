@@ -115,7 +115,8 @@ namespace AssetWebTest.Controllers
             }
             catch (System.Exception ex)
             {
-                return null;
+                HttpContext.Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
+                return Json(new { status = "error", message = ex.Message });
             }
         }
     }

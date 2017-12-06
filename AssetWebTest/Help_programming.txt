@@ -315,3 +315,40 @@ dt = city.GetAllCity();//your datatable
                     }
                 }
 ====================================================================
+// Currency Field Validation (Allow Only Numbers)
+$(".text.price").keydown(function (e) {
+    // Allow: backspace, delete, tab, escape, enter and .
+    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+            // Allow: Ctrl+A, Command+A
+            (e.keyCode == 65 && ( e.ctrlKey === true || e.metaKey === true ) ) || 
+            // Allow: home, end, left, right, down, up
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+        // let it happen, don't do anything
+        return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        e.preventDefault();
+    }
+});
+
+https://www.jqueryscript.net/other/Easy-Numbers-Currency-Formatting-Plugin-autoNumeric.html
+===http://www.decorplanit.com/plugin/======================================================
+function isDecimalNumber(evt, c) {
+      count = count + 1;
+      var charCode = (evt.which) ? evt.which : event.keyCode;
+      var dot1 = c.value.indexOf('.');
+      var dot2 = c.value.lastIndexOf('.');
+      if (count > 2 && dot1 == -1) {
+          c.value = "";
+          count = 0;
+      }
+      if (dot1 > 2) {
+          c.value = "";
+      }
+      if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+      else if (charCode == 46 && (dot1 == dot2) && dot1 != -1 && dot2 != -1)
+          return false;
+      return true;
+  }
