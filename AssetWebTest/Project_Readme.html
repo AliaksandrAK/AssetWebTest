@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Content/deAsset.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <title>Your ASP.NET application</title>
     <script type='text/javascript' src='Scripts/knockout-min.js'></script>
-
+    <script type='text/javascript' src='Scripts/jquery-1.10.2.min.js'></script>
+    <script type='text/javascript' src='Scripts/autoNumeric.js'></script>
+    <script type='text/javascript' src='Scripts/bootstrap.min.js'></script>
 </head>
 <body>
 
@@ -140,6 +140,20 @@
             <td>
                 <div>
                     <input type="button" name="LineItemReport" value=" Line Item Report " onClick="ExcelLineReport()">
+
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <input type="text" class="DEMO" data-a-sign="$ " data-a-dec="," data-a-sep=".">
+                    <script>
+                        jQuery(function ($) {
+                            $('.DEMO').autoNumeric('init', { aSep: '', vMin: 0.00, vMax: 99999.99 });
+                        });
+                    </script>
                 </div>
             </td>
         </tr>
@@ -273,7 +287,7 @@ function ajax_download(url, data) {
 
 
 //-->
-</script>
+                    </script>
 <!-- End Download --> 
 
     <script type="text/javascript">
