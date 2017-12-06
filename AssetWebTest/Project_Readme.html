@@ -21,6 +21,7 @@
     <script type='text/javascript' src='Scripts/ajax_download.js'></script>
     <script type='text/javascript' src='Scripts/report.js'></script>
     <script type='text/javascript' src='Scripts/jquery.hint.js'></script>
+    <script type='text/javascript' src='Scripts/double_input.js'></script>
 </head>
 <body>
 
@@ -170,6 +171,16 @@
                         $('.DEMO').hint('-');
                     </script>
                 </div>
+                <div>
+                    <input type="text" class="DEMO1">
+                </div>
+                <div>
+                    <input type="text" class="DEMO3">
+                    <script>
+                        double_input('.DEMO3',5,2,'.');
+                        $('.DEMO3').hint('-');
+                    </script>
+                </div>
             </td>
         </tr>
     </table>
@@ -183,11 +194,136 @@ Today's message is: <span data-bind="text: myMessage"></span>
 
 <script language="JavaScript">
 <!--
+    function getBeforeAfter() {
+        var value = $(this),
+            left = value.substring(0, this.selection.start),
+            right = value.substring(this.selection.end, value.length);
+        return [left, right];
+    }
+
 $(document).ready(function () {
     $.extend($.fn.autoNumeric.defaults, {
         aSep: '@System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator',
         aDec: '@System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator'
     });
+
+    $(".DEMO").keypress(function (event) {
+        var gg = $('.DEMO').autoNumeric('get');
+    });
+
+
+    $(".DEMO").bind('paste', function (e)
+    {
+        //alert('paste event caught')
+        var parts = getBeforeAfter();
+        var pastedData = e.originalEvent.clipboardData.getData('text');
+        var $this = $(this);
+        var fff = $this.val();
+        var gg = $('.DEMO').autoNumeric('get');
+        if (pastedData > 10) return false;
+    });
+
+    $('.DEMO2').keydown(function (e) {
+        console.log(e.keyCode)
+        if (e.target.selectionStart !== e.target.selectionEnd) return true
+        if (e.keyCode === 8 || e.keyCode === 190) return true;
+
+        var arr = e.target.value.split('.');
+        if (arr.length === 1) {
+            return arr[0].length <= 4
+        } else {
+            return arr[0].length <= 5 && arr[1].length <= 1
+        }
+    })
+
+
+
+    $(document).keydown(function (e) {
+        if (e.keyCode == ctrl) keyDown = true;
+    }).keyup(function (e) {
+        if (e.keyCode == ctrl) keyDown = false;
+    });
+
+
+    $('.DEMO1').hint('-');
+
+    function insert(str, index, value) {
+        return str.substr(0, index) + value + str.substr(index);
+    }
+    function isNumber(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+    $('.DEMO1').on('keypress', function (e) {
+        if (!e) var e = window.event;
+        if (e.keyCode > 0 && e.which == 0) return true;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        var character = String.fromCharCode(code);
+        if (character !='.' && !isNumber(character)) return false;
+        if (character == '\b' || character == ' ' || character == '\t') return true;
+        if (keyDown && (code == vKey || code == Vkey)) return (character);
+        else {
+            if (/[0-9]$/.test(character)) {
+                var start = e.target.selectionStart;
+                var end = e.target.selectionEnd;
+                var val = e.target.value;
+                val = val.replace(val.substring(start, end), "");
+                //merge value
+                var mergarr = insert(val, start, character).split('.');
+                if (mergarr.length === 1 && mergarr[0].length > 5) return false;
+                if (mergarr.length === 2)
+                {
+                    if (mergarr[1].length > 2) return false;
+                    if (mergarr[0].length > 5) return false;
+                }
+                if (mergarr.length > 2) return false;
+            }
+            else false;
+        }
+    }).on('paste', function (e) {
+        var $this = $(this);
+        var pastedData = e.originalEvent.clipboardData.getData('text');
+        var arr = pastedData.split('.');
+        if (arr.length === 1 && arr[0].length > 5) return false;
+        if (arr.length === 2) {
+            if (arr[1].length > 2) return false;
+            if (arr[0].length > 5) return false;
+        }
+        if (arr.length > 2) return false;
+
+        //check inside data
+        var start = e.target.selectionStart;
+        var end = e.target.selectionEnd;
+        var val = e.target.value;
+        val = val.replace(val.substring(start, end), "");
+        //merge value
+        var mergeval = insert(val, start, pastedData);
+        var mergarr = mergeval.split('.');
+        if (mergarr.length === 1 && mergarr[0].length > 5) return false;
+        if (mergarr.length === 2) {
+            if (mergarr[1].length > 2) return false;
+            if (mergarr[0].length > 5) return false;
+        }
+        if (mergarr.length > 2) return false;
+
+        setTimeout(function () {
+            $this.val($this.val().replace(/[^0-9]/g, ''));
+        }, 5);
+    });
+
+
+    $('.DEMO2').change(function () {
+        var max = 999999;//parseInt($(this).attr('max'));
+        var min = 0;//parseInt($(this).attr('min'));
+        if ($(this).val() > max) {
+            $(this).val(max);
+        }
+        else if ($(this).val() < min) {
+            $(this).val(min);
+        }
+    });
+
+
 });
 
 function ExcelLaunch() {
@@ -196,9 +332,11 @@ function ExcelLaunch() {
     document.LaunchExcel.focus;
     document.LaunchExcel.submit();
 }
+
 function PropInp(){
 document.location.href="HtmlTestPage1.html";
 }
+
 </script>
 
 <script type="text/javascript">
