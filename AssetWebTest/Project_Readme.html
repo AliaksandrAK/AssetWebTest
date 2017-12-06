@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Content/deAsset.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <title>Your ASP.NET application</title>
-    <script type='text/javascript' src='Scripts/knockout-min.js'></script>
+    <title>Your ASP.NET application</title>
     <style>
         #reportbutton {
             cursor: pointer;
@@ -17,8 +16,9 @@
             }
     </style>
     <script type='text/javascript' src='Scripts/jquery-1.10.2.min.js'></script>
-    <script type='text/javascript' src='Scripts/autoNumeric.js'></script>
     <script type='text/javascript' src='Scripts/bootstrap.min.js'></script>
+    <script type='text/javascript' src='Scripts/knockout-min.js'></script>
+    <script type='text/javascript' src='Scripts/autoNumeric.js'></script>
 </head>
 <body>
 
@@ -160,10 +160,14 @@
         <tr>
             <td>
                 <div>
+                    <!--
                     <input type="text" class="DEMO" data-a-sign="$ " data-a-dec="," data-a-sep=".">
+                    -->
+                    <input type="text" class="DEMO">
                     <script>
-                        jQuery(function ($) {
-                            $('.DEMO').autoNumeric('init', { aSep: '', vMin: 0.00, vMax: 99999.99 });
+                        jQuery(function($) {
+                        //    $('.DEMO').autoNumeric('init', { vMin: 0.00, vMax: 99999.99 });
+                            $('.DEMO').autoNumeric('init', { vMax: 99999.99 });
                         });
                     </script>
                 </div>
@@ -180,6 +184,13 @@ Today's message is: <span data-bind="text: myMessage"></span>
 
 <script language="JavaScript">
 <!--
+$(document).ready(function () {
+    $.extend($.fn.autoNumeric.defaults, {
+        aSep: '@System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator',
+        aDec: '@System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator'
+    });
+});
+
 function ExcelLaunch() {
     document.LaunchExcel.action = "get_report.asp";
     document.LaunchExcel.target = "_New";
