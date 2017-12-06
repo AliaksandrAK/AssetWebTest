@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="Content/deAsset.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <title>Your ASP.NET application</title>
     <script type='text/javascript' src='Scripts/knockout-min.js'></script>
+    <style>
+        #reportbutton {
+            cursor: pointer;
+        }
+
+            #reportbutton:active {
+                transform: translateY(4px);
+            }
+    </style>
     <script type='text/javascript' src='Scripts/jquery-1.10.2.min.js'></script>
     <script type='text/javascript' src='Scripts/autoNumeric.js'></script>
     <script type='text/javascript' src='Scripts/bootstrap.min.js'></script>
@@ -142,6 +151,9 @@
                     <input type="button" name="LineItemReport" value=" Line Item Report " onClick="ExcelLineReport()">
 
 
+                </div>
+                <div>
+                    <input type="button" id="reportbutton" name="LineItemReport" value=" Line Item Report " onClick="ExcelLineReport()">
                 </div>
             </td>
         </tr>

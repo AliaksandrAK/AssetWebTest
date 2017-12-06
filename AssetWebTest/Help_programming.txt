@@ -298,4 +298,20 @@ dt = city.GetAllCity();//your datatable
                                                 fileInfo.FileDownloadName = "ProposalLineItem_" + DateTime.Now.ToShortDateString() + ".xls";
                                                 return fileInfo;
 
+
+				using (var memstream = new MemoryStream())
+                {
+                    using (var fileWr = new StreamWriter(memstream))
+                    {
+                        foreach (var sLine in reportList)
+                        {
+                            fileWr.WriteLine(sLine);
+
+                        }
+                        fileWr.Flush();
+                        var fileInfo = File(memstream.ToArray(), "application/vnd.ms-excel");
+                        fileInfo.FileDownloadName = "ProposalLineItem_" + DateTime.Now.ToShortDateString() + ".xls";
+                        return fileInfo;
+                    }
+                }
 ====================================================================
