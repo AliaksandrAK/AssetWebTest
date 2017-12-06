@@ -20,6 +20,7 @@
     <script type='text/javascript' src='Scripts/autoNumeric.js'></script>
     <script type='text/javascript' src='Scripts/ajax_download.js'></script>
     <script type='text/javascript' src='Scripts/report.js'></script>
+    <script type='text/javascript' src='Scripts/jquery.hint.js'></script>
 </head>
 <body>
 
@@ -164,8 +165,9 @@
                     <script>
                         jQuery(function($) {
                         //    $('.DEMO').autoNumeric('init', { vMin: 0.00, vMax: 99999.99 });
-                            $('.DEMO').autoNumeric('init', { vMax: 99999.99 });
+                            $('.DEMO').autoNumeric('init', { wEmpty: 'empty', vMax: 99999.99 });
                         });
+                        $('.DEMO').hint('-');
                     </script>
                 </div>
             </td>
