@@ -21,6 +21,7 @@
     <script type='text/javascript' src='Scripts/ajax_download.js'></script>
     <script type='text/javascript' src='Scripts/report.js'></script>
     <script type='text/javascript' src='Scripts/jquery.hint.js'></script>
+    <script type='text/javascript' src='Scripts/proto.js'></script>
     <script type='text/javascript' src='Scripts/double_input.js'></script>
 </head>
 <body>
@@ -235,15 +236,6 @@ $(document).ready(function () {
             return arr[0].length <= 5 && arr[1].length <= 1
         }
     })
-
-
-
-    $(document).keydown(function (e) {
-        if (e.keyCode == ctrl) keyDown = true;
-    }).keyup(function (e) {
-        if (e.keyCode == ctrl) keyDown = false;
-    });
-
 
     $('.DEMO1').hint('-');
 
