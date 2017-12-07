@@ -52,7 +52,12 @@ function double_input(selector, cel, dec, sep) {
         var start = e.target.selectionStart;
         var end = e.target.selectionEnd;
         var val = e.target.value;
-        var pastedData = e.originalEvent.clipboardData.getData('text');
+        var pastedData = "";
+        if(window.clipboardData) { //for IE
+            pastedData = window.clipboardData.getData('Text');
+        }else {
+            pastedData = e.originalEvent.clipboardData.getData('text');
+        }
         var arr = pastedData.split(sep);
         val = val.replace(val.substring(start, end), "");
 
@@ -64,6 +69,10 @@ function double_input(selector, cel, dec, sep) {
                 if (arr[0].length > cel) 
                 {
                     arr[0] = arr[0].substring(1, cel+1);
+                    cutstring = arr[0] + sep;
+                }
+                else if (arr.length === 1)
+                {
                     cutstring = arr[0] + sep;
                 }
                 else if (arr.length === 2)
@@ -82,8 +91,9 @@ function double_input(selector, cel, dec, sep) {
         var mergarr = mergeval.split(sep);
         if (mergarr.length === 1 && mergarr[0].length > cel) return false;
         if (mergarr.length === 2) {
-            if (mergarr[1].length > dec) return false;
+            mergarr[0] = mergarr[0].replace(",","");
             if (mergarr[0].length > cel) return false;
+            if (mergarr[1].length > dec) return false;
         }
         if (mergarr.length > 2) return false;
 
