@@ -25,6 +25,36 @@ function double_input(selector, cel, dec, callbackfunc) {
     function removeStr(str, startIndex, count) {
         return str.substr(0, startIndex) + str.substr(startIndex + count);
     }
+    function cutValue(value) {
+        if (string.IsNullOrEmpty(value) || value.Equals(symbolMinus)) return value;
+        value = value.replace(symbolTh, "");
+        var arr = value.split(sep);
+        var cutstring = "";
+        if (arr.length > 0) {
+            if (arr[0].length > cel) {
+                arr[0] = arr[0].substring(0, cel);
+                cutstring = arr[0];
+            }
+            else if (arr.length === 1) {
+                cutstring = arr[0] + sep;
+            }
+            else if (arr.length === 2) {
+                if (arr[1].length > dec) arr[1] = arr[1].substring(1, dec + 1);
+                cutstring = arr[0] + sep + arr[1];
+            }
+        }
+        return cutstring;
+    }
+    function checkValue(newval) {
+        var mergarr = newval.split(sep);
+        if (mergarr.length > 0) mergarr[0] = mergarr[0].replace(symbolTh, "");
+        if (mergarr.length === 1 && mergarr[0].length > cel) return false;
+        if (mergarr.length === 2) {
+            if (mergarr[0].length > cel) return false;
+            if (mergarr[1].length > dec) return false;
+        }
+        if (mergarr.length > 2) return false;
+    }
 
     $(selector).bind('keypress', function (e) {
         if (!e) var e = window.event;
@@ -36,20 +66,13 @@ function double_input(selector, cel, dec, callbackfunc) {
         if (character == '\b' || character == ' ' || character == '\t') return true;
 
         var val = e.target.value;
-        if (character == sep && val.split(sep).length > 1) return false;
+        var start = e.target.selectionStart;
+        var end = e.target.selectionEnd;
 
-        if (/[0-9]$/.test(character)) {
-            var start = e.target.selectionStart;
-            var end = e.target.selectionEnd;
-            val = removeStr(val,start, end-start);
-            var mergarr = insert(val, start, character).split(sep);
-            if (mergarr.length === 1 && mergarr[0].length > cel) return false;
-            if (mergarr.length === 2) {
-                mergarr[0] = mergarr[0].replace(symbolTh, "");
-                if (mergarr[0].length > cel) return false;
-                if (mergarr[1].length > dec) return false;
-            }
-            if (mergarr.length > 2) return false;
+        if (/[0-9]$/.test(character) || character == sep) {
+            val = removeStr(val, start, end - start);
+            var newval = insert(val, start, character);
+            return checkValue(newval);
         }
     });
     $(selector).bind('paste', function (e) {
@@ -63,45 +86,32 @@ function double_input(selector, cel, dec, callbackfunc) {
         }else {
             pastedData = e.originalEvent.clipboardData.getData('text');
         }
-        var arr = pastedData.split(sep);
         val = removeStr(val, start, end-start);
 
         if (string.IsNullOrEmpty(val) || val.Equals(symbolMinus)) {
-            var cutstring = "";
-            if (arr.length > 0) {
-                if (arr[0].length > cel) {
-                    arr[0] = arr[0].substring(0, cel);
-                    cutstring = arr[0];
-                }
-                else if (arr.length === 1) {
-                    cutstring = arr[0] + sep;
-                }
-                else if (arr.length === 2) {
-                    if (arr[1].length > dec) arr[1] = arr[1].substring(1, dec+1);
-                    cutstring = arr[0] + sep + arr[1];
-                } 
-            }
-            $(this).val(cutstring);
+            $(this).val(cutValue(pastedData));
             if (callbackfunc != null) callbackfunc($(this));
             result = false;
         }
         else {
-            var mergeval = insert(val, start, pastedData);
-            var mergarr = mergeval.split(sep);
-            if (mergarr.length === 1 && mergarr[0].length > cel) result = false;
-            else if (mergarr.length === 2) {
-                    mergarr[0] = mergarr[0].replace(symbolTh, "");
-                    if (mergarr[0].length > cel) result = false;
-                    if (mergarr[1].length > dec) result = false;
-                }
-            else if (mergarr.length > 2) result = false;
-        }
-
+            var newval = insert(val, start, pastedData);
+            result = checkValue(newval);
+         }
         return result;
+    });
+
+    $(selector).bind('blur', function (e) {
+        var value = $(this).val();
+        if (string.IsNullOrEmpty(value) || value.Equals("-")) {
+            return true;
+        }
+        $(this).val(cutValue(value));
+        if (callbackfunc != null) callbackfunc($(this));
     });
 }
 
 function double_input_unbind(selector) {
     $(selector).unbind("keypress");
     $(selector).unbind("paste");
+    $(selector).unbind("blur");
 }
