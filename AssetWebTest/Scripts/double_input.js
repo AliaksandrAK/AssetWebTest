@@ -6,14 +6,13 @@
  * Created by Alex Kusonski
  * Comments: When paste data from clipboard there is not checking to put only number (it is not correct).
  * It is because old version for the input item work the same and client should see the same in new version.
- * Call FormatDecimal (Proposal.Web/Scripts/Custom/prototype/basics.js) after paste or set callbackfunc. It change the text to 0.0.
  *
  * Copyright (c) ServiceChannel
  *
  */
 function double_input(selector, cel, dec, callbackfunc) {
     var sep = ".";
-    var symbolTh = ",";
+    var symbolTh = /,/g;
     var symbolMinus = "-";
 
     function insert(str, index, value) {
