@@ -30,8 +30,10 @@ function double_input(selector, cel, dec, callbackfunc) {
         var arr = value.split(sep);
         var cutstring = "";
         if (arr.length > 0) {
-            if (arr[0].length > cel) {
-                arr[0] = arr[0].substring(0, cel);
+            var isminus = 0;
+            if (arr[0].indexOf(symbolMinus) != -1)isminus = 1;
+            if ((arr[0].length-isminus) > cel) {
+                arr[0] = arr[0].substring(0, (cel+isminus));
                 cutstring = arr[0];
             }
             else if (arr.length === 1) {
@@ -46,7 +48,13 @@ function double_input(selector, cel, dec, callbackfunc) {
     }
     function checkValue(newval) {
         var mergarr = newval.split(sep);
-        if (mergarr.length > 0) mergarr[0] = mergarr[0].replace(symbolTh, "");
+        if (mergarr.length > 0) {
+            mergarr[0] = mergarr[0].replace(symbolTh, "");
+            var idxminus = mergarr[0].match(/-/g);
+            if ((idxminus != null && idxminus.length > 1) ||
+                mergarr[0].indexOf(symbolMinus) > 0)return false;
+            mergarr[0] = mergarr[0].replace("-", "");
+        }
         if (mergarr.length === 1 && mergarr[0].length > cel) return false;
         if (mergarr.length === 2) {
             if (mergarr[0].length > cel) return false;
@@ -61,14 +69,14 @@ function double_input(selector, cel, dec, callbackfunc) {
         if (e.keyCode) code = e.keyCode;
         else if (e.which) code = e.which;
         var character = String.fromCharCode(code);
-        if (character != sep && !isNumber(character)) return false;
+        if (character != sep && !isNumber(character) && character != symbolMinus) return false;
         if (character == '\b' || character == ' ' || character == '\t') return true;
 
         var val = e.target.value;
         var start = e.target.selectionStart;
         var end = e.target.selectionEnd;
 
-        if (/[0-9]$/.test(character) || character == sep) {
+        if (/[0-9]$/.test(character) || character == sep || character == symbolMinus) {
             val = removeStr(val, start, end - start);
             var newval = insert(val, start, character);
             return checkValue(newval);
