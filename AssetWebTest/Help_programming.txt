@@ -352,3 +352,103 @@ function isDecimalNumber(evt, c) {
           return false;
       return true;
   }
+
+=======================CAMERA=======================================
+https://www.codeproject.com/Questions/1118654/How-to-integrate-USB-camera-in-ASP-NET
+https://www.xarg.org/project/jquery-webcam-plugin/
+https://stackoverflow.com/questions/36577651/asp-net-jquery-webcam
+
+
+http://www.aforgenet.com/framework/docs/
+http://www.cyberforum.ru/csharp-net/thread653929.html
+http://gunnarpeipman.com/2013/01/using-jquery-webcam-plugin-with-asp-net-mvc/
+
+
+<object width="320" height="240" id="XwebcamXobjectX" data="/download/jscam_canvas_only.swf" type="application/x-shockwave-flash"><param name="movie" value="/download/jscam_canvas_only.swf"><param name="FlashVars" value="mode=callback&amp;quality=85"><param name="allowScriptAccess" value="always"></object>
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.webcam.js")">
+    </script>
+    <script>
+        $("#Camera").webcam({
+             width: 320,
+             height: 240,
+             mode: "save",
+             swffile: "@Url.Content("~/Scripts/jscam.swf")",
+             onTick: function () { },
+             onSave: function () {
+             },
+             onCapture: function () {
+                 webcam.save("@Url.Content("~/Home/Capture")/");
+             },
+             debug: function () { },
+             onLoad: function () { }
+         });
+     </script>
+}
+<h2>Index</h2>
+<input type="button" value="Shoot!" onclick="webcam.capture();" />
+<div id="Camera"></div>
+
+
+
+        var cams = webcam.getCameraList();
+        for(var i in cams) {
+        jQuery("#cams").append("<li>" + cams[i] + "</li>");
+        }
+
+
+
+
+<div clas="myvideo">
+    <video id="video" width="215" height="150" autoplay="autoplay" style="margin-top: 10vh; background-color: none; z-index: 2 !important;"></video>
+    <canvas id="canvas" width="205" height="150" style="background-color: none;"></canvas>
+    <button id="snap" class="sexyButton" style="height: 30px; width: 100px; border: 0px; border-radius: 3px; margin-top: 8vh; margin-left: 13vw">Snap Photo</button>
+    <script language="JavaScript">
+
+// Put event listeners into place
+window.addEventListener("DOMContentLoaded", function () {
+// Grab elements, create settings, etc.
+var canvas = document.getElementById("canvas"),
+context = canvas.getContext("2d"),
+video = document.getElementById("video"),
+videoObj = { "video": true },
+errBack = function (error) {
+console.log("Video capture error: ", error.code);
+};
+
+// Put video listeners into place
+if (navigator.getUserMedia) { // Standard
+navigator.getUserMedia(videoObj, function (stream) {
+video.src = stream;
+video.play();
+}, errBack);
+} else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
+navigator.webkitGetUserMedia(videoObj, function (stream) {
+video.src = window.webkitURL.createObjectURL(stream);
+video.play();
+}, errBack);
+} else if (navigator.mozGetUserMedia) { // WebKit-prefixed
+navigator.mozGetUserMedia(videoObj, function (stream) {
+video.src = window.URL.createObjectURL(stream);
+video.play();
+}, errBack);
+}
+
+// Trigger photo take
+document.getElementById("snap").addEventListener("click", function () {
+context.drawImage(video, 0, 0, 220, 150);
+});
+}, false);
+
+    </script>
+
+
+</div>

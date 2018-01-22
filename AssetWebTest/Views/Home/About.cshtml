@@ -5,3 +5,47 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.webcam.js")">
+    </script>
+    <script>
+        $("#Camera").webcam({
+             width: 320,
+             height: 240,
+             mode: "save",
+//             swffile: "@Url.Content("~/Scripts/jscam.swf")",
+             swffile: "@Url.Content("~/Scripts/jscam_canvas_only.swf")",
+             onTick: function(remain) {
+                 if (0 == remain) {
+                    jQuery("#status").text("Cheese!");
+                    } else {
+                        jQuery("#status").text(remain + " seconds remaining...");
+                    }
+
+             },
+             onSave: function () {
+             },
+             onCapture: function () {
+                 webcam.save("@Url.Content("~/Home/Capture")/");
+             },
+             debug: function(type, string) {
+                 $("#status").html(type + ": " + string);
+             },
+            onLoad: function() {
+                var cams = webcam.getCameraList();
+                for(var i in cams) {
+                    jQuery("#cams").append("<li>" + cams[i] + "</li>");
+    }
+
+            }
+        });
+    </script>
+}
+<h2>Index</h2>
+<input type="button" value="Shoot!" onclick="webcam.capture();" />
+<div id="Camera" type="application/x-shockwave-flash">
+</div>
+<div id="status">
+</div>
