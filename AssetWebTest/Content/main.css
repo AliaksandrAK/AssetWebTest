@@ -1,0 +1,2446 @@
+﻿body {
+	font-size: 12px;
+	color: #565656;
+	background-color: #f9f9f9;
+	padding-left: 0;
+	padding-right: 0;
+	font-family: "Open Sans", sans-serif;
+}
+.caret {
+	margin: 0
+}
+.edit-filters {
+    position: relative;
+    top: 2px;
+}
+.container #page {
+	background: #f9f9f9;
+}
+.header.padding h3, .header.padding h3 #locationHeader {
+	color: #3e8acc;
+	font-weight: 400;
+}
+.header.padding h3 span {
+	color: #aabdd0;
+	font-weight: bold;
+}
+.header h3 strong {
+	font-style: normal;
+}
+.main-header {
+	background: none repeat scroll 0 0 #eef5fb;
+	margin: -12px 0 0;
+	padding: 10px 0 5px;
+}
+.filter-area.form-group {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	width: 90%;
+}
+.container .padding {
+	padding: 0 30px;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+	min-height: 1px;
+	padding-left: 30px;
+	padding-right: 30px;
+	position: relative;
+}
+.filter_field button.dropdown-toggle {
+	text-align: left;
+	width: 190px;
+}
+#locationsSection .table.main {
+	background: #fff;
+}
+table.main > thead > tr > th {
+	background-color: #fff;
+}
+#locationsSection .main > tbody {
+	border-bottom: 1px solid #eeeeee;
+}
+table.main tr.bordered th {
+	border-bottom: 1px solid #c1c1c1;
+}
+table.main .nav-pills li > a.dropdown-toggle {
+	color: #aabdd0;
+}
+.nav.nav-pills .glyphicon {
+	font-size: 16px;
+}
+table.main > tbody > tr > td {
+	border-top: medium none;
+	padding: 5px 5px;
+}
+.main > tbody > tr > td.ChooseLocation {
+	padding-left: 15px;
+}
+table.main {
+	margin-bottom: 0;
+}
+table.main > thead > tr.bordered > th {
+	padding: 0px 15px 0px 15px;
+}
+.TemplatesContainer .nav li.active:hover a {
+	text-decoration: none;
+	background-color: #fff !important;
+}
+.container .btn-default {
+	font-size: 12px;
+	line-height: 1.42857;
+	padding: 2px 8px;
+}
+.container .btn-default .fa, .container .btn-default:hover .fa {
+	color: #428bca !important;
+}
+#AssignButton {
+	margin: 4px 0 0 15px;
+}
+/*#AssignButton span.overflow {
+	display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	margin-bottom:-4px;
+}
+@media screen and (min-width: 1135px) {
+    #AssignButton span.overflow {
+		max-width:350px;
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1134px) { 
+    #AssignButton span.overflow {
+		max-width:190px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+    #AssignButton span.overflow {
+		max-width:170px;
+	}
+}*/
+.paginator.form-inline .pull-right {
+	padding-right: 15px;
+}
+.paginator.form-inline .pull-right .fa-caret-right {
+	margin-right: 0 !important;
+}
+.paginator.form-inline .form-group label {
+	color: #aabdd0;
+}
+#InputPage, #currentPageField {
+	background-color: #f9f9f9;
+	border: none;
+	box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.075) inset;
+	margin: -3px 0 0 0;
+}
+.main tfoot .paginator .form-group input {
+	width: 40px;
+}
+.filter_field .dropdown-menu {
+	margin: 0 0 0 30px;
+	width: 190px;
+	top: 60px;
+}
+#locationsSection {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.exclude.checkbox label {
+	color: #aabdd0;
+	float: left;
+}
+.checkbox-group {
+	float: right;
+	line-height: 19px;
+	margin: -2px 0 0;
+	padding: 0;
+	width: 220px;
+}
+.checkbox-group .radio, .checkbox-group .checkbox {
+	min-height: 20px;
+}
+.radio-inline, .checkbox-inline {
+	padding-left: 20px !important;
+}
+tr.active td {
+	background: #477aa7 !important;
+	color: #fff !important;
+}
+#locationsSection select.form-control, #TemplateFilesHistoriesTable select.form-control, #LocationCountHistoriesTable select.form-control {
+	font-size: 12px;
+	color: #aabdd0 !important;
+	border: none;
+	margin-top: -5px;
+}
+.paginator .form-group .btn-lg.no-mrg {
+	margin-right: 0;
+}
+.addNewLocation {
+	float: right;
+	margin: -40px 0 0;
+}
+.container .panel-default .panel-heading a {
+	color: #428bca;
+	font-size: 12px;
+	font-weight: normal;
+}
+.panel-group {
+	margin-bottom: 5px;
+}
+.nav.nav-tabs .active {
+	font-weight: bold;
+}
+.nav.nav-tabs {
+	margin-bottom: 15px;
+}
+.container .table {
+	width: 100%;
+}
+.TemplatesContainer {
+	background: #fff;
+}
+.TemplatesContainer h3 {
+	margin: 20px 0 10px 15px;
+}
+.TemplatesContainer .tab-pane {
+	padding-left: 15px;
+}
+.modal-body, .modal-footer {
+	padding: 20px;
+}
+.modal-footer {
+	margin-top: 15px;
+}
+.modal-body label {
+	font-weight: normal;
+	margin-bottom: 2px;
+}
+.modal-body .form-control {
+	font-size: 12px;
+	font-family: Open Sans, Arial, sans-serif;
+}
+.modal-body label, .modal-body select, .modal-body {
+	font-size: 12px;
+}
+.modal-body .col-sm-8, .modal-body .col-sm-4 {
+	padding: 0 15px;
+}
+.modal-body .col-sm-8 {
+    min-height: 18px;
+}
+.modal-body .scroll-pane {
+    max-height: 324px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: -20px;
+    padding: 20px;
+}
+.amp {
+	font-size: 18px;
+	color: #aabdd0;
+}
+.filter_field .btn {
+	font-size: 12px;
+	padding: 7px 12px 5px 12px;
+	line-height: 1.729;
+}
+.filter_field input {
+	font-size: 12px;
+	padding: 7px 12px 5px 12px;
+}
+.RightSection {
+	padding-left: 0;
+	padding-top: 30px;
+}
+.LocationContainer {
+	background: #fff;
+	margin-bottom: 30px;
+}
+.LocationContainer hr, .LocationNotes hr {
+	margin: 0;
+}
+.LocationHeader {
+	background: #eef5fb;
+	padding: 1px 15px 1px;
+	border-left: 2px solid #3e8acc;
+}
+.LocationHeader h3 {
+	color: #4b8acc;
+	margin-top: 10px;
+	font-size: 1.75em;
+}
+.LocationHeader h3 i {
+	margin-right: 10px;
+}
+.LocationSub {
+	padding: 12px;
+}
+.LocationSub h4 {
+	margin-top: 5px;
+	font-weight: 700;
+	color: #428bca;
+	font-size: 1.33em;
+}
+.LocationSub table td span {
+	display: block;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #aabdd0;
+	padding: 5px 0 13px 0;
+	letter-spacing: -0.5px;
+}
+.LocationSub table td {
+	font-size: 12px;
+	color: #428bca;
+	text-transform: uppercase;
+	vertical-align: top;
+}
+.LocationSub table td strong {
+	font-size: 14px;
+}
+.LocationContainer .btn-primary {
+	font-size: 1em;
+	padding: 2px 5px 2px;
+}
+.LocationLayout .LocationNotes .panel-default .panel-heading a span {
+	font-size: 1em;
+}
+.no-location-notes {
+	font-size: 14px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.LocationNotes {
+	background: #fff;
+}
+.LocationNotesList {
+	overflow-y: auto;
+	max-height: 198px;
+}
+@media screen and (max-width:1025px) {
+		.LocationNotesList {
+			max-height: 95px;
+		}
+}
+.LocationNotesList a, .LocationNotesList a:visited {
+	font-size: 12px;
+	color: #aabdd0;
+	text-decoration: none;
+	display: block;
+	padding: 6px 0 6px 13px;
+}
+.LocationNotesList a:hover, .LocationNotesList a:visited:hover {
+	font-size: 12px;
+	color: #aabdd0;
+	text-decoration: underline;
+}
+.LocationNotesList a strong {
+	color: #565656;
+}
+.LocationNotesList span {
+	font-size: 1em;
+	color: #aabdd0;
+	text-decoration: none;
+	display: block;
+}
+.LocationNotesList div {
+	padding: 6px 0 6px 13px;
+}
+.LocationNotes .panel-heading {
+	background: #fff;
+	border-bottom: 1px solid #eeeeee;
+}
+.LocationNotes .panel-group .panel, .LocationNotes .panel-group .panel .panel-heading {
+	border-radius: 0;
+}
+.LocationNotes .panel-default .panel-heading a {
+	color: #3e8acc;
+	font-size: 14px;
+	padding: 12px 15px;
+	font-weight: normal;
+}
+.LocationNotes .panel-default .panel-heading a strong {
+	font-size: 16px;
+}
+.LocationNotesList .location-notes-value {
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    max-width: 400px;
+}
+.filter_field .selectize-input input {
+	line-height: 14px !important;
+}
+.TemplatesContainer .tab-content {
+	border: none;
+}
+.TemplatesContainer .tab-content .col-xs-12 .btn-default, .TemplatesContainer .tab-content .col-xs-12 .btn-primary {
+	margin: 0 11px 0 0;
+}
+.TemplatesContainer .tab-content .btn-default, .pane .btn-default {
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #b3b3b3;
+}
+.TemplatesContainer .btn-default:hover, .TemplatesContainer .btn-default:focus, .TemplatesContainer .btn-default:active, .TemplatesContainer .btn-default.active, .TemplatesContainer .btn-default.disabled, .TemplatesContainer .btn-default[disabled], .pane .btn-default:hover, .pane .btn-default:focus, .pane .btn-default:active, .pane .btn-default.active, .pane .btn-default.disabled, .pane .btn-default[disabled] {
+	background-color: #e6e6e6;
+	color: #333;
+}
+.TemplatesContainer .btn-default span {
+	font-weight: normal;
+	text-transform:none; 
+}
+.TemplatesContainer .btn-default span#spanBtnLocCount {
+	font-weight: 700;
+}
+.TemplatesContainer .btn-default:hover span#spanBtnLocCount, .TemplatesContainer .btn-default:hover span {
+	color: #333 !important;
+}
+.tag.label.label-info span {
+	font-size: 11px;
+	padding: 0;
+	line-height: 13px;
+}
+.btn-default, .form-control, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	color: #565656;
+}
+.dropdown-menu > li > a {
+	color: #565656;
+}
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+	color: #fff !important;
+}
+.container .row {
+	margin: 0;
+}
+/* location details */
+.nav.location-details li.active a, .nav.location-details li.active:hover a, .nav.location-details li.active:focus a {
+	background: #f9f9f9 !important;
+	border-bottom: 1px solid #f9f9f9 !important;
+	color: #565656 !important;
+}
+.nav.nav-tabs.location-details {
+	background: #eef5fb;
+	text-align: center;
+	padding: 30px 0 0 0;
+}
+#RuleDetailsContainer .nav.nav-tabs.location-details .row-fluid {
+	margin: 0 auto;
+	max-width: 1140px;
+}
+#RuleDetailsContainer .LocationNotesLink, #RuleDetailsContainer .LocationNotesLink:visited {
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+#RuleDetailsContainer .LocationNotesLink:hover, #RuleDetailsContainer .LocationNotesLink:visited:hover {
+}
+#RuleDetailsContainer .LocationNotesLink strong {
+	font-size: 24px;
+	color: #aabdd0;
+}
+button.add-tags {
+	float: left;
+	margin: 7px 0 0 10px; 
+}
+.nav-tabs.location-details > li {
+	float: none;
+	font-size: 14px;
+}
+.nav-tabs.location-details > li strong {
+	display: inline-block;
+	font-size: 16px;
+	margin: -1px 0;
+}
+.nav.location-details > li {
+	display: inline-block;
+}
+.nav.location-details > li > a:hover {
+	background-color: #ededed !important;
+}
+.nav.location-details > li > a:hover, .nav.location-details > li > a:focus {
+	background-color: #ededed;
+	text-decoration: none;
+	color: #0683c9;
+	outline: none;
+}
+.nav-tabs.location-details > li > a:hover {
+	border-color: #dddddd #dddddd #ddd;
+}
+.tab-content.location-details > .tab-pane {
+	background: #f9f9f9;
+}
+.tab-content.location-details {
+	border: none;
+	background: #f9f9f9;
+}
+.location-details-layout .row {
+	padding: 15px 30px 0;
+	margin: 0;
+}
+
+@media only screen and (max-width: 780px) {
+.location-details-layout .row {
+	padding: 15px 0px 0;
+	margin: 0;
+}
+}
+.location-details-layout .pane.pane {
+	background: #fff;
+	margin-bottom: 30px;
+	padding: 20px;
+}
+.location-details-layout .pane h2 {
+	font-size: 14px;
+	color: #428bca;
+	text-transform: uppercase;
+	margin-top: 0;
+}
+.location-details-layout .col-sm-8 {
+}
+.help-block {
+	margin: 0 0 0 0;
+}
+#uploadedFileRealName {
+	height: 34px;
+	margin-top: 0;
+	width: 100%;
+	margin-left: 0;
+}
+.location-details-layout input.form-control {
+	display: inline-block;
+	font-size: 12px;
+	height: 28px;
+	line-height: 1.42857;
+	padding: 3px 9px;
+	margin: 10px 0;
+}
+.location-details-layout textarea {
+	display: inline-block;
+	font-size: 12px;
+	padding: 3px 9px;
+	margin: 10px 0 2px 0;
+	resize: none;
+	vertical-align: middle;
+}
+.location-details-layout input.date {
+	width: 85%;
+}
+.location-details-layout input.warranty {
+	width: 12%;
+}
+span.expires {
+	float: right;
+	padding: 16px 0 0 0;
+}
+.location-details-layout .form-group select {
+	width: 65%;
+	display: inline-block;
+	font-size: 12px;
+	height: 28px;
+	line-height: 1.42857;
+	padding: 3px 5px;
+	margin: 10px 3px 10px 0;
+}
+.location-details-layout select.loc-status {
+	width: 100%;
+}
+.location-details-layout .form-group label {
+	text-align: right;
+	font-size: 12px;
+	color: #565656;
+	font-weight: normal;
+	padding-right: 0;
+	padding-top: 15px;
+	vertical-align: middle;
+	min-height: 45px;
+	word-wrap: break-word;
+}
+.location-details-layout label .mandatory, .modal.invoice_status label .mandatory, .modal.invoice_status span.mandatory {
+	color: #ff0000;
+}
+.pane .fa-calendar {
+	color: #428bca;
+	font-size: 23px;
+	line-height: 20px;
+	margin: 14px 0 0 0;
+	vertical-align: text-bottom;
+	float: right;
+}
+.pane .btn-default.plus {
+	margin: -5px 0 0 35%;
+}
+.pane .btn-default.plus .fa {
+	color: #565656 !important;
+}
+.pane .btn-default {
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #b3b3b3;
+}
+.pane .btn-default:hover, .pane .btn-default:focus, .pane .btn-default:active, .pane .btn-default.active, .pane .btn-default.disabled, .pane .btn-default[disabled] {
+	background-color: #e6e6e6;
+	color: #333;
+}
+.location-details-layout .pane.pane-btns {
+	background: none;
+	text-align: center;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: 0px;
+}
+.location-details-layout .btn-primary, .modal-footer .btn-primary {
+	color: #fff;
+	background-color: #428bca;
+	border-color: #357ebd;
+}
+.location-details-layout .btn-primary:hover, .location-details-layout .btn-primary:focus, .location-details-layout .btn-primary:active, .location-details-layout .btn-primary.active, .modal .btn-primary:hover, .modal .btn-primary:focus, .modal .btn-primary:active, .modal .btn-primary.active {
+	color: #fff;
+	background-color: #3276b1;
+	border-color: #285e8e;
+	background-image: none;
+}
+.location-details-layout .btn-primary span {
+	color: #fff;
+}
+.location-details-layout .btn-primary:hover, .location-details-layout .btn-primary:focus, .location-details-layout .btn-primary:active, .location-details-layout .btn-primary.active, .modal .btn-primary:hover, .modal .btn-primary:focus, .modal .btn-primary:active, .modal .btn-primary.active {
+	color: #fff;
+	background-color: #3276b1;
+	border-color: #285e8e;
+	background-image: none;
+}
+.location-details-layout .btn-primary span {
+	color: #fff;
+	margin-right: 8px;
+}
+label.error {
+	color: #ff0000;
+}
+.location-details-layout .TemplatesContainer {
+	background: #fff;
+}
+.location-details-layout .col-md-6 {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.clear {
+	clear: both;
+}
+.location-notes .pane {
+	margin: 0 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.location-details .row {
+	margin: 0 auto;
+	max-width: 1140px;
+}
+.location-details-layout .pane input#uploadedFileRealName {
+	width: 250px;
+}
+.location-details-layout .pane a#uploadComponent {
+	display: inline-block;
+	font-size: 12px;
+	margin: -3px 10px 0;
+	padding: 5px 12px 4px;
+	width: 160px;
+}
+.location-details-layout .btn-danger {
+	font-size: 12px;
+}
+.attachment-table {
+	margin-top: 15px;
+}
+.attachment-table td {
+	border-bottom: 1px solid #eeeeee;
+	padding: 5px 15px;
+}
+.attachment-table td.attachment-table-btn {
+	padding: 5px 0 0 0;
+	text-align: center;
+	border: none;
+}
+.attachment-table-btn .btn.btn-default:hover span {
+	color: #565656;
+}
+.attachment-table td.ddt {
+	text-align: right;
+}
+.attachment-table input[type="checkbox"] {
+	position: absolute;
+}
+.attachment-table a {
+	margin-left: 13px;
+}
+span.filename {
+	margin-left: 10px;
+	color: #4e8ecc;
+}
+.location-details-header {
+	background: #477aa7;
+	padding: 15px 30px;
+	margin: -13px 0 0 0;
+}
+.location-details-header a.close-list i {
+	font-size: 25px;
+	line-height: 18px;
+	margin-left: 5px;
+	vertical-align: sub;
+}
+.modal-header i {
+	font-size: 25px;
+	line-height: 18px;
+	margin-left: 5px;
+	vertical-align: top;
+}
+.FixedLayout {
+	padding: 38px 0 0 0;
+}
+.location-details-header.fixed {
+	position: fixed;
+	width: 100%;
+	height: 49px;
+	z-index: 5;
+}
+.location-details-header h3 {
+	font-size: 18px;
+	color: #fff;
+	margin: 0;
+	width: 60%;
+	float: left;
+}
+.location-details-header h3 span.number {
+	margin: 0 25px 0 15px;
+}
+.pane .cleditorMain {
+	background-color: white;
+	border: 1px solid #eeeeee;
+	padding: 0 1px 1px;
+}
+a.close-list, a.close-list:visited {
+	background: none repeat scroll 0 0 #428bca;
+	color: #fff;
+	display: inline-block;
+	float: right;
+	font-size: 14px;
+	margin: -15px -30px 0 0;
+	padding: 16px 20px 15px 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	height: 49px;
+}
+a.close-list:hover, a.close-list:visited:hover {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+}
+a.close-list span {
+	color: #fff;
+	font-size: 40px;
+	font-weight: 700;
+	margin: 0 11px;
+	vertical-align: middle;
+}
+
+/* summary cards fixed */
+@media screen and (min-width: 955px) {
+.LocationLayout-fixed {
+	position: fixed;
+	top: 106px;
+	width: inherit;
+	padding-right: 30px;
+}
+}
+.RightSection {
+	position: relative;
+}
+/*help menu*/
+.help-container.navbar {
+	position: absolute;
+	right: 37px;
+	margin-top: -6px;
+}
+.help-container.navbar .nav {
+	margin: 0;
+	padding: 0;
+}
+.help-container.navbar .nav .dropdown-menu {
+	left: -120px;
+	margin-top: -4px;
+}
+.help-container.navbar .nav > li > a {
+	color: #aabdd0;
+	float: none;
+	line-height: 19px;
+	padding: 9px 10px 11px;
+	text-decoration: none;
+	text-shadow: none;
+}
+.help-container.navbar .nav li a i {
+	background: none repeat scroll 0 0 #adc0d2;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 16px;
+	margin-right: 3px;
+	padding: 2px 5px;
+	vertical-align: bottom;
+}
+.help-container.navbar .dropdown-menu:before {
+	left: 131px;
+}
+.help-container.navbar .dropdown-menu:after {
+	left: 132px;
+}
+/* outline + upload btn bug */
+.container button, .container a, .container a:link {
+	outline: none !important;
+}
+#attachmentsForm #selectFilesBtn i.icon-white.icon-upload {
+	display: none;
+}
+/*help menu*/
+.help-container.navbar {
+	left: 445px;
+	margin-top: -6px;
+	position: absolute;
+}
+.help-container.navbar .nav {
+	margin: 0;
+	padding: 0;
+}
+.help-container.navbar .nav .dropdown-menu {
+	left: -120px;
+	margin-top: -4px;
+}
+.help-container.navbar .nav > li > a {
+	color: #aabdd0;
+	float: none;
+	line-height: 19px;
+	padding: 9px 10px 11px;
+	text-decoration: none;
+	text-shadow: none;
+}
+.help-container.navbar .nav li a i {
+	background: none repeat scroll 0 0 #adc0d2;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 16px;
+	margin-right: 3px;
+	padding: 2px 5px;
+	vertical-align: bottom;
+}
+.help-container.navbar .dropdown-menu:before {
+	left: 131px;
+}
+.location-details .form-group {
+	margin-bottom: 0;
+}
+.location-details .input-append.date .add-on i {
+	width: auto;
+}
+.datepicker .icon-arrow-right {
+	background-position: -455px -72px;
+}
+.datepicker .icon-arrow-left {
+	background-position: -430px -72px;
+}
+/* remove filter tables */
+.filter_field {
+	display: table;
+}
+.filter-btn, .filter-fld, .filter-go {
+	display: table-cell;
+	vertical-align: top;
+	height: 39px;
+	padding-right: 8px;
+}
+.filter-fld {
+	width: 100%;
+}
+/* new ui update */
+#footer span.copy {
+	line-height: 27px;
+}
+.addlocation {
+	margin: 3px 0 0 15px;
+}
+.help-container.navbar .dropdown-menu:after {
+	left: 132px;
+}
+.help-container:hover li a, .help-container li.open a {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
+	-moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+	opacity: 0.7;
+}
+.location-notes-value span {
+	color: #565656;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+}
+.AttachmentsCount {
+	color: #428bca;
+	display: block;
+	padding: 3px 0;
+	text-align: right;
+	white-space: nowrap;
+}
+span#AttachmentsCountLabel, span#OpenTradesCount {
+	font-weight: 700;
+}
+.btn-beta {
+	background: none repeat scroll 0 0 #adc0d2;
+	color: #fff;
+	font-size: 12px;
+	margin: 3px 0 0;
+	padding: 1px 15px;
+	position: absolute;
+	right: 30px;
+	text-transform: uppercase;
+}
+.btn-beta:active, .btn-beta:focus {
+	color: #fff;
+}
+.btn-beta:hover {
+	color: #fff;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
+	-moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+	opacity: 0.7;
+}
+.checkbox-group .checkbox {
+	padding-left: 30px;
+}
+.exclude.checkbox label:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
+	-moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+	opacity: 0.7;
+	color: #becedb
+}
+.StatusLabel {
+	display: block;
+	margin-top: -5px;
+	color: #3e8acc;
+	text-transform: uppercase;
+}
+.info-group {
+	padding-top: 10px;
+	font-weight: 400;
+}
+.info-group span {
+	display: block;
+}
+.info-group span i {
+	margin-right: 10px;
+	color: #3e8acc;
+}
+.StatusBlock {
+	padding-top: 0;
+	vertical-align: top;
+	text-transform: uppercase;
+	white-space: nowrap;
+	display: block;
+	font-weight: normal;
+}
+.info-group span.info-group-value {
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 85%;
+	vertical-align: top;
+}
+.info-group .fa-user, .info-group .fa-phone {
+	font-size: 15px;
+}
+.datepicker .switch {
+	text-align: center;
+}
+/* fix layout location notes */
+#location_notes.location-details-layout .pane.pane {
+	padding: 20px 5px;
+}
+#location_notes .col-md-12 {
+	padding-left: 0;
+	padding-right: 0;
+}
+#location_notes .col-md-12 .col-md-6 {
+	padding-left: 0;
+	padding-right: 0;
+}
+#location_notes .col-md-12 .col-md-6 .col-sm-4 {
+	padding-left: 0;
+	padding-right: 0;
+}
+.location_id {
+	height: 47px;
+}
+/* fix btn delete + popup */
+#delLocationBtn {
+	float: left;
+	left: 0%;
+	position: relative;
+	vertical-align: bottom;
+	top: -7px;
+}
+.modal .modal-header h1 span.StoreIdLabel {
+	color: #fff;
+}
+/* popup loading */
+#loading.loading span, #processing.loading span, #saving.loading span, #validating.loading span, #downloading.loading span {
+	line-height: 18px;
+    z-index: 12000 !important;
+}
+/* fix summary cards layout */
+.LocationSub .col-md-7 {
+	padding: 0;
+}
+.who-updated-label, .who-updated-location-notes-label, .who-updated-wiki-label {
+	float: right;
+	color: #CCCCCC;
+	font-size: 12px;
+}
+.who-updated-container {
+	margin-right: 15px;
+	margin-top: -15px;
+}
+/* Location popup */
+.col-xs-12 .modal .btn-default, .col-xs-12 .modal .btn-primary {
+	margin-right: 0;
+}
+.modal.single-location .col-md-4 {
+	padding-left: 50px;
+	padding-right: 20px;
+}
+.modal.single-location .col-md-8 {
+	padding-left: 0;
+	padding-right: 10px;
+}
+.modal.single-location .col-md-1 {
+	padding-left: 0;
+	padding-right: 20px;
+	margin-left: -25px;
+}
+.modal.single-location .col-md-7 {
+	padding-left: 0;
+	padding-right: 40px;
+}
+.single-location .field {
+	margin-bottom: 10px;
+}
+.single-location .modal-body {
+	padding-bottom: 0;
+	outline:none;
+}
+.single-location .row.add-location {
+	background: #eef5fb;
+    margin: 0 -20px -20px -20px;
+    padding: 15px 20px 0;
+}
+.single-location .row.add-location .field input {
+	color: #a7a7a7;
+}
+.col-md-4.rank {
+	font-weight: 700;
+}
+.row-scrollable {
+	overflow: auto;
+	height: 265px;
+}
+.single-location .row.add-location button {
+	margin: 5px 0 0 0;
+	padding:2px 12px;
+}
+.single-location .row {
+	position: relative;
+}
+.single-location .row.has-error .selectize-input, .single-location .selectize-input.has-error, .field.haserror .selectize-input, .modal.invoice_status textarea.has-error {
+	border-color: red;
+}
+.single-location .alert-danger {
+	background-color: red;
+	border: medium none;
+	border-radius: 0;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 700;
+	margin: -21px -20px 10px;
+	padding: 20px;
+}
+.single-location .alert-danger i {
+	margin: 0 15px 0 5px;
+}
+.single-location .row .fa-exclamation-triangle {
+	color: red;
+	font-size: 20px;
+	left: 5px;
+	position: absolute;
+	top: 8px;
+}
+.single-location .row .fa-check {
+	color: #40c828;
+	font-size: 20px;
+	left: 5px;
+	position: absolute;
+	top: 8px;
+}
+.col-sm-3 .LocationLayout {
+	font-size: 90%;
+}
+/* popup cleaning */
+#assignProvidersConfirmWindow .modal-body h3 span, #assignProvidersConfirmWindow .modal-body .dl-horizontal dd span, #assignProvidersConfirmWindow .modal-body .well.well-sm td span {
+	margin-right: 5px;
+}
+#assignProvidersConfirmWindow .dl-horizontal dt {
+	margin-left: 90px;
+	width: 175px;
+}
+#assignProvidersConfirmWindow .dl-horizontal dd {
+	margin-left: 270px;
+}
+#assignProvidersConfirmWindow .modal-body .dl-horizontal dd span.retiredProviders {
+	margin: 0 !important;
+}
+button label {
+	margin: 0 !important;
+	font-weight: normal;
+}
+button label#assignRetireLabel {
+	font-weight: bold;
+}
+#assignProvidersConfirmWindow .modal-body h3 {
+	text-transform: uppercase;
+}
+.modal-footer .btn-default {
+	font-size: 14px;
+	padding: 6px 12px;
+}
+.upcase {
+	text-transform: uppercase;
+}
+/* new tab on location details */
+.Assignments {
+	margin-top: 0;
+	width: 100%;
+	padding: 0;
+}
+.Assignments > li {
+	padding: 3px 20px;
+	font-size: 14px;
+	line-height: 22px;
+	border-bottom: 1px solid #eeeeee;
+	min-height: 45px;
+}
+.Assignments.LocLevels li:first-child {
+	padding: 13px 50px 3px 50px;
+	border-bottom: 1px solid #eeeeee;
+}
+.Assignments.LocLevels > li ul {
+	padding: 5px 0 14px 0;
+	border-bottom: none;
+}
+.Assignments.LocLevels > li ul li:first-child {
+	padding: 0;
+	border-bottom: none;
+}
+.Assignments.LocLevels > li ul .pa-number {
+	font-weight: normal;
+	padding: 3px 15px 3px 45px;
+	font-size: 13px;
+}
+.Assignments.LocLevels > li ul .pa-name {
+	text-decoration: none;
+	font-size: 13px;
+}
+.Assignments.LocLevels > li ul .pa-name:hover {
+	text-decoration: underline;
+}
+.Assignments li:first-child {
+	padding: 0;
+	border-bottom: none;
+}
+.Assignments > li {
+	padding: 3px 50px;
+}
+.Assignments > li ul {
+	padding: 5px 0 20px 0;
+}
+.Assignments .TradeBtns {
+	background: #eef5fb;
+	padding: 0 15px;
+}
+.Assignments .ExcludeRetiredCheckbox {
+/*padding: 10px 20px 0 35px;*/
+}
+.Assignments .ExcludeRetiredCheckbox label {
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 18px;
+	color: #aabdd0;
+}
+.Assignments .ExcludeRetiredCheckbox input {
+	margin-top: 2px;
+}
+.location-details-layout .pane.AssignmentPane {
+	padding: 0;
+}
+.location-details-layout .pane.LocLevelsPane {
+	padding: 0;
+}
+.Assignments #ExcludeRetiredCheckboxLayout {
+	float: right;
+}
+.Assignments label {
+	color: #428bca;
+	font-weight: 700;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+.Assignments .meta {
+	float: right;
+	padding-top: 4px;
+}
+.Assignments .meta span {
+	display: block;
+	color: #ccc;
+	font-size: 12px;
+	line-height: 1.2;
+	text-transform: none;
+}
+.attachment-table-row td.ddt {
+    color: #ccc;
+}
+.Assignments .meta span:last-child {
+	text-transform: uppercase;
+}
+.Assignments label input {
+	vertical-align: top;
+	margin-right: 15px;
+}
+.Assignments select {
+	width: 100%;
+	color: #aabdd0;
+	margin: 15px 0 0 0;
+}
+.autocomplete-checkbox {
+	width: 50%;
+}
+.Assignments .pa-number {
+	font-weight: 700;
+	padding: 0px 5px 0px 45px;
+	width: 75px;
+	text-align: right;
+	display: inline-block;
+}
+.Assignments .pa-number-dynamic-width {
+	font-weight: 700;
+	padding: 0px 5px 0px 45px;
+	text-align: right;
+	display: inline-block;
+}
+.pa-name {
+	color: #428bca;
+	width: 88%;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.Assignments .retire button {
+	margin: 0 0 10px 0;
+}
+.Assignments .row-hp {
+	padding: 0px 0;
+}
+.Assignments .row-hp hr {
+	margin: 10px 0;
+}
+.fa.fa-retweet {
+	font-weight: normal;
+}
+.Assignments .pa-label {
+	padding: 0 0 0 0px;
+	margin-top: 9px;
+}
+.Assignments .pa-label span {
+	font-size: 12px;
+	font-weight: 500;
+	margin: 0 14px 0 -20px;
+	text-transform: uppercase;
+}
+.Assignments.LocLevels .pa-label.no-child a, .Assignments.LocLevels .pa-label.no-child a:visited, .Assignments.LocLevels .pa-label.no-child a:hover, .Assignments.LocLevels .pa-label.no-child a:visited:hover {
+	color: #d2322d;
+}
+.btn.btn-alltrade {
+	font-size: 12px;
+	padding: 2px 15px 1px;
+	text-transform: uppercase;
+	color: #4579a9;
+	background: #fff;
+}
+.btn.btn-alltrade:hover {
+	color: #fff;
+	background-color: #3276b1;
+}
+.btn.btn-alltrade:active, .btn.btn-alltrade:focus {
+	color: #fff;
+}
+.btn.btn-opentrade {
+	font-size: 12px;
+	padding: 2px 15px 1px;
+	text-transform: uppercase;
+	color: #4579a9;
+	background: #fff;
+}
+.tab-content button.btn.btn-opentrade span {
+	font-weight: normal;
+	color: #4579a9;
+}
+.tab-content button.btn.btn-opentrade:hover span, .tab-content button.btn.btn-opentrade:active span, .tab-content button.btn.btn-opentrade:focus span, .tab-content button.btn.btn-opentrade.active span {
+	font-weight: normal;
+	color: #fff;
+}
+.btn.btn-opentrade:hover {
+	color: #fff;
+	background-color: #3276b1;
+}
+.btn.btn-opentrade:active, .btn.btn-opentrade:focus {
+	color: #fff;
+}
+.tab-content .Assignments button {
+	margin: 12px 12px 12px 0px;
+}
+#ExcludeRetiredCheckboxLayout {
+	text-transform: uppercase;
+}
+.btn.btn-alltrade.active, .btn.btn-opentrade.active {
+	color: #fff;
+	background-color: #3276b1;
+}
+.attachment-table a {
+	font-weight: 600;
+}
+#location_attachments.location-details-layout .pane.pane {
+	padding: 0 0 20px 0;
+}
+.modal-body.single-location.location-levels {
+	padding-bottom: 0;
+}
+.modal-body.single-location.location-levels ul {
+	padding: 5px 0 14px 0;
+	line-height: 35px;
+}
+.modal-body.single-location.location-levels ul .pa-number {
+	font-weight: normal;
+	padding: 3px 15px 3px 15px;
+	font-size: 13px;
+}
+.modal-body.single-location.location-levels ul .pa-name {
+	text-decoration: none;
+	font-size: 13px;
+}
+.modal-body.single-location.location-levels ul .pa-remove {
+	float: right;
+	padding-right: 60px;
+	font-size: 13px;
+}
+.modal-body.single-location.location-levels ul .pa-remove a, .modal-body.single-location.location-levels ul .pa-remove a:visited {
+	color: #d2322d;
+}
+.modal-body.single-location.location-levels ul .pa-remove i {
+	color: #d2322d;
+	padding-right: 5px;
+}
+.modal-body.single-location.location-levels .row-scrollable {
+	height: 170px;
+}
+.modal-body.single-location.location-levels .row.add-location {
+	padding: 0;
+}
+.modal-body.single-location.location-levels .col-md-3, .modal-body.single-location.location-levels .col-xs-3, .modal-body.single-location.location-levels .col-md-9, .modal-body.single-location.location-levels .col-xs-9 {
+	padding-left: 0;
+}
+#location_attachments .row {
+	padding-top: 0;
+}
+.pane .col-sm-8, .pane .col-xs-8 {
+	padding-left: 15px;
+}
+.location-details-layout .col-xs-12 .pane.pane {
+	padding-left: 15px;
+	padding-right: 0;
+}
+/* tab issue */
+#templatesTab.nav-tabs > li.active > a, #templatesTab.nav-tabs > li.active > a:hover, #templatesTab.nav-tabs > li.active > a:focus {
+	border-bottom-color: white;
+}
+/* wiki */
+.location-wiki {
+	position: relative;
+}
+.btn-primary {
+	background-image: -moz-linear-gradient(top, #6a97c4, #4a77a4);
+	background-image: -ms-linear-gradient(top, #6a97c4, #4a77a4);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6a97c4), to(#4a77a4));
+	background-image: -webkit-linear-gradient(top, #6a97c4, #4a77a4);
+	background-image: -o-linear-gradient(top, #6a97c4, #4a77a4);
+	background-image: linear-gradient(top, #6a97c4, #4a77a4);
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6a97c4', endColorstr='#4a77a4', GradientType=0);
+	border-color: #0E699B #0E699B #003580;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.ClearFiltersLink i {
+	display: inline-block;
+	margin-top: 0.8em;
+	vertical-align: top;
+}
+.pa-header {
+	background-color: #FFFFFF;
+	border-left: none;
+}
+.pa-header h5 {
+	color: #3e8acc;
+	cursor: pointer;
+}
+.pa-header h5:hover {
+	text-decoration: underline;
+}
+.pa-header span {
+	margin-left: 5px;
+	font-weight: bold;
+}
+.rankType.radio {
+	padding-left: 10px;
+}
+.provider-info-header {
+	margin-top: 0;
+}
+.provider-info-header-id {
+	color: #ffffff;
+	font-size: 14px;
+}
+.provider-info-header-id span {
+	font-weight: bold;
+	margin-left: 10px;
+}
+.provider-info-item-header {
+	width: 30%;
+	display: inline-block;
+	vertical-align: top;
+}
+.provider-info-item-header span {
+	float: right;
+}
+.provider-info-item {
+	margin-bottom: 5px;
+}
+.provider-info-item-value {
+	margin-left: 20px;
+	display: inline-block;
+	width: 60%;
+}
+.provider-info-item-value span {
+	font-weight: bold;
+	float: left;
+}
+.provider-info-dialog .modal-footer {
+	margin-top: 0;
+}
+.provider-trade-cell {
+	width: 150px;
+	text-align: right;
+	text-transform: uppercase;
+}
+.provider-trade-cell-empty {
+	width: 0;
+}
+table.main > tbody > tr > td.provider-trade-cell-empty {
+	padding: 0;
+	padding-right: 5px;
+}
+.provider-trade-cell.rank {
+	text-align: left;
+	padding-top: 7px;
+}
+.main td.rank {
+}
+/* specific demo styles */
+.demo .col-height {
+	line-height: 40px;
+}
+.demo .btn.btn-primary.dropdown-toggle {
+	width: 160px;
+	text-align: left;
+}
+.demo .dropdown-menu {
+	display: block;
+	top: 40px;
+}
+.demo .LocationContainer {
+	background: none;
+}
+.demo .main-header {
+	margin: 250px 0 140px 0;
+}
+.demo .clear {
+	clear: both;
+}
+.demo input.form-control.demo-input {
+	width: 160px;
+}
+.demo .demo-ch-1 {
+	float: none;
+	width: 210px;
+}
+.demo .demo-ch-2 {
+	float: none;
+	width: 260px;
+}
+.demo .filter-area .dropdown-menu#filter_dropdown {
+	top: 60px;
+}
+.demo .demo-radio {
+	float: left;
+	margin-left: -20px;
+}
+.demo textarea {
+	width: 295px
+}
+.location-details-header.invoice {
+	height: 55px;
+	padding: 15px 30px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	margin: 0;
+	min-width: 750px;
+}
+.currency-label {
+	float: left;
+	margin-left: 25px;
+}
+.location-details-header.invoice a.close-list i {
+	font-size: 25px;
+	vertical-align: sub;
+	margin-left: 5px;
+}
+.location-details-header.invoice a.close-list, .location-details-header.invoice a.close-list:visited {
+	font-size: 14px;
+	margin: -15px -30px 0 0;
+	padding: 18px 20px 18px 30px;
+}
+.location-details-header.invoice a.close-list:hover, .location-details-header.invoice a.close-list:visited:hover {
+	font-size: 14px;
+}
+.location-details-header.invoice a.close-list span {
+	color: #fff;
+	font-size: 40px;
+	font-weight: 700;
+	margin: 0 11px;
+	vertical-align: middle;
+}
+.location-details-header.invoice h3 {
+	font-size: 20px;
+	display: inline;
+	vertical-align: middle;
+	width: auto;
+}
+.location-details-header.invoice input.form-control {
+	display: inline-block;
+	font-size: 12px;
+	height: 27px;
+	line-height: normal !important;
+	margin: 0 9% 0 1%;
+	padding: 0 0 0 8px;
+	vertical-align: middle;
+	width: auto;
+}
+.LocationNotesRow.invoices select.form-control {
+	height: auto;
+	font-size: 12px;
+	width: 60%;
+	padding: 4px;
+}
+.invoices p {
+	font-size: 12px;
+	margin: 0 0 10px;
+}
+.LocationNotesRow {
+	padding: 75px 30px 0 30px;
+	background: #eef5fb;
+}
+#ProviderInfo p span {
+	word-wrap: break-word;
+	word-break: break-all;
+	white-space: normal;
+	width: auto;
+	display: inline-block;
+}
+span.BrandName {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 22px;
+	overflow-wrap: break-word !important;
+    word-break: normal !important;
+}
+span.LocationName {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 16px;
+}
+
+span.remit-to-select {
+    display: block !important;
+    padding: 0;    
+}
+
+.ResultTable {
+}
+.ResultTable td {
+	font-size: 12px;
+	line-height: 15px;
+	padding: 5px 10px;
+	text-align: right;
+	vertical-align: top;
+}
+.ResultTable td.ResultTd {
+	font-weight: 700;
+	text-align: left;
+}
+
+.ResultTable td.ResultTd a {
+    cursor: pointer;
+}
+
+.ResultTable td.AttachmentsBtn {
+	text-align: center;
+}
+.AttachmentsBtn .btn-default {
+	margin: 8px 0 0 30px;
+}
+.AttachmentsBtn .btn-default span {
+	font-weight: 700;
+}
+.LocationNotesLink, .LocationNotesLink:visited {
+	clear: both;
+	display: inline-block;
+	float: left;
+	font-size: 12px;
+	padding: 0 0 10px 30px;
+	text-decoration: none !important;
+}
+.LocationNotesLink:hover, .LocationNotesLink:visited:hover {
+	text-decoration: none;
+}
+.LocationNotesLink span.fa {
+	color: #3e8acc;
+	font-size: 20px;
+	margin: 0 5px 0 0;
+	vertical-align: sub;
+}
+.row.ControlsContainer {
+	border-top: 1px solid #dcdbda;
+}
+.row.InvoiceRow {
+	padding: 10px 0px 0;
+}
+p.breadcrumbs {
+	margin: 5px 0 25px 0px;
+	font-size: 14px;
+}
+p.breadcrumbs span {
+	display: inline-block;
+	padding-top: 10px;
+	word-wrap: break-word;
+	white-space: normal;
+	width: 100%;
+}
+span.summary {
+	color: #428bca;
+}
+div.LocationNotesContainer {
+	clear: both;
+}
+ul.LocationNotesColumns {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+@media only screen and (max-width : 1030px) {
+.LocationNotesColumns li {
+	width: 33.3333% !important;
+	padding: 0 30px;
+}
+}
+.LocationNotesColumns li {
+	display: block;
+	float: left;
+	width: 25%;
+	color: #aabdd0;
+	padding: 0 30px 10px 30px;
+}
+.LocationNotesColumns li span {
+	color: #565656;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 85%;
+    word-break: break-all;
+}
+.LocationNotesColumns li span.notes-header {
+	color: #999;
+}
+#invoice_labor .row, #invoice_material .row, #invoice_travel .row {
+	margin: 0 auto;
+	max-width: 1195px;
+	padding: 20px 0 0;
+}
+#invoice_attachments .row {
+	margin: 0 auto;
+	max-width: 1195px;
+	padding: 5px 0 0;
+}
+#invoice_attachments .row.ControlsContainer {
+	margin: 0 auto;
+	max-width: inherit;
+	padding: 0;
+}
+#invoice_labor .row.AmountContainer, #invoice_material .row.AmountContainer, #invoice_travel .row.AmountContainer {
+	padding: 0px 0 30px;
+}
+#invoice_labor .LocationNotesLink {
+	font-size: 14px;
+	padding: 0 0 10px;
+}
+.IVRCheckIn-accordion, .IVRCheckIn-accordion:visited {
+	clear: both;
+	color: #3b3938;
+	display: inline-block;
+	float: left;
+	font-size: 14px;
+	padding: 0 0 10px;
+	text-decoration: none !important;
+}
+.IVRCheckIn-accordion:hover, .IVRCheckIn-accordion:visited:hover {
+	color: #707070;
+	text-decoration: none;
+}
+.IVRCheckIn-accordion span.fa {
+	color: #3e8acc;
+	font-size: 20px;
+	margin: 0 5px 0 0;
+	vertical-align: sub;
+}
+.InvoiceArea table td.num, .InvoiceArea table th.num {
+	text-align: right;
+}
+.InvoiceArea table.IVRCheckIn {
+	margin: 30px 0 10px 25px;
+}
+.InvoiceArea table.IVRCheckIn th {
+	color: #aabdd0;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 0 10px;
+}
+.InvoiceArea table.IVRCheckIn td {
+	font-size: 14px;
+	padding: 5px 10px;
+	vertical-align: middle;
+}
+.InvoiceArea table.IVRCheckIn td table th {
+    padding-right: 0 !important;
+}
+.InvoiceArea table.IVRCheckIn td table td {
+    padding-right: 0;
+}
+.InvoiceArea table.IVRCheckIn td.num.usd {
+    font-size: 21px;
+}
+ @media screen and (min-width: 320px) and (max-width: 991px) { 
+ 	.IVRCheckIn td:last-child {
+    	max-width: 60px !important;
+	}
+	.InvoiceArea table.IVRCheckIn td.num.usd { 
+		font-size: 18px; 
+	}
+}
+.InvoiceArea table.IVRCheckIn .totalIVR td {
+	font-weight: 700;
+}
+table.info .form-control {
+	padding: 3px 6px;
+	height: 30px;
+}
+.row.AmountContainer .InvoiceTable td.TotalTd {
+	background: #eef5fb;
+	color: #3e8acc;
+	border-top: none;
+}
+.InvoiceTable td.TotalTd.TaxesIncluded {
+	display: block;
+	padding-right: 165px;	
+}
+.InvoiceTable.Controls.WalmartOtherListNotIncludedWithNonTaxable {
+    width: 415px;
+}
+.InvoiceTable.Controls.WalmartOtherListNotIncludedWithoutNonTaxable {
+    width: 320px;
+}
+.InvoiceTable td.tax-included, .InvoiceTable td.CommonLabelVat, .InvoiceTable td.CommonLabelVatAmount, .InvoiceTable td.CommonLabelAmount {
+	vertical-align: bottom;
+}
+.InvoiceTable td.TotalTd.TaxesExcluded {
+	display: block;
+}
+.InvoiceTable.Controls.TaxesExcluded {
+	width: 453px;
+}
+.row.AmountContainer .InvoiceTable td.TotalTd strong {
+	color: #3e8acc
+}
+.InvoiceArea #invoice_labor .pane.pane, .InvoiceArea #invoice_material .pane.pane, .InvoiceArea #invoice_travel .pane.pane {
+	padding: 15px;
+}
+.invoice.location-details-header A.close-list {
+	height: 55px;
+}
+td.InvoiceSelectAll {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	line-height: 0;
+}
+.attachment-table td.InvoiceSelectAll input {
+	margin-right: 15px;
+	margin-top: 0;
+	position: relative;
+	vertical-align: top;
+}
+td.InvoiceSelectAll label {
+	color: #aabdd0;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 13px;
+	margin-bottom: 0;
+}
+.InvoiceArea table.info th {
+	color: #aabdd0;
+	font-weight: normal;
+	text-align: right;
+	font-size: 14px;
+	padding: 0 10px;
+}
+.InvoiceArea table.info td {
+	padding: 7px 10px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 14px;
+}
+.InvoiceArea table.info td.select-td {
+	width: 22%;
+}
+.InvoiceArea table.info td.shore-select-td {
+    width: 11%;
+}
+.InvoiceArea table.info td.amount-td {
+	width: 15%;
+}
+.InvoiceArea table.info td.name-td {
+	width: 28%;
+}
+.InvoiceArea table.info td.city-td {
+    width: 25%;
+}
+.InvoiceArea table.info td.service-td {
+    width: 40%;
+}
+.InvoiceArea table.info tr.on-off-shore-tr td {
+    padding-top: 0;
+}
+.InvoiceArea table.info td.part-td {
+	width: 18%;
+}
+.InvoiceArea table.info td.unit-td {
+	width: 11%;
+}
+.InvoiceArea table.info td input.amount {
+	font-weight: 700;
+	text-align: right;
+	width: 100%;
+}
+.InvoiceArea table.info td input.numbers {
+	width: 100%;
+	text-align: right;
+}
+.InvoiceArea table.info td input.intNumber {
+	width: 100%;
+	text-align: right;
+}
+.InvoiceArea table.info td input.decimalNumber {
+	width: 100%;
+	text-align: right;
+}
+.InvoiceArea table.info td.source-td {
+	text-align: right;
+	padding-left: 30px;
+}
+.InvoiceArea table.info td select {
+	height: auto;
+	width: 100%;
+}
+.InvoiceArea table.info td .form-group {
+	margin-bottom: 0;
+}
+div.sub {
+	color: #3e8acc;
+	font-size: 18px;
+	font-weight: 700;
+	margin: -15px 0 0;
+	padding: 0 0 0 53%;
+	white-space: nowrap;
+}
+.InvoiceArea .pane.pane {
+	background: none repeat scroll 0 0 #fff;
+	margin-bottom: 30px;
+	padding: 0 0 20px;
+}
+.InvoiceRow textarea {
+	height: 145px;
+	max-width: 500px;
+	resize: none;
+	font-size: 14px;
+	padding: 10px;
+}
+.InvoiceArea .InvoiceTable {
+	margin-top: 10px;
+    margin-left: -10px;
+}
+.InvoiceTable {
+	font-size: 12px;	
+}
+.InvoiceTable label {
+	font-weight: normal;
+}
+.InvoiceTable.CanadaTaxes {
+	width: 437px;
+}
+.InvoiceTable.CanadaTaxesNotTaxedExcluded {
+	width: 437px;
+}
+.InvoiceTable.CanadaTaxesNotTaxedIncluded {
+	width: 534px;
+}
+.InvoiceTable.Controls {
+	margin-top: -1px;
+}
+.InvoiceTable td {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	background: #fff;
+}
+.InvoiceTable td.CommonLabelAmount {
+	color: #9ab1c5;
+	padding-right: 21px;
+	text-align: center;
+	padding-bottom: 0;
+}
+.InvoiceTable td.CommonLabelVat {
+	color: #9ab1c5;
+	padding-right: 10px;
+	text-align: right;
+	padding-bottom: 0;
+}
+.InvoiceTable td.CommonLabelVatAmount {
+	color: #9ab1c5;
+	padding-right: 20px;
+	text-align: right;
+	padding-bottom: 0;
+}
+.InputLabel a {
+	font-weight: 700;
+	font-size: 18px;
+	padding-right: 8px;
+}
+.InvoiceTable td.SpecialLabel {
+	color: #438dcd;
+	padding-right: 50px;
+	text-align: right;
+	padding-bottom: 0;
+}
+.InvoiceTable td.InputLabel {
+	padding-right: 20px;
+	text-align: right;
+	position: relative;
+}
+.InvoiceTable td.InputLabel a#LinkLaborTab, .InvoiceTable td.InputLabel a#LinkMaterialTab .InvoiceTable td.InputLabel a#LinkTravelTab {
+	white-space: normal;
+	word-wrap: break-word;
+	word-break: break-all;
+	text-align: right;
+	right: 17px;	
+	margin-top: -11px;
+	width: 180px;
+}
+.InvoiceTable td.InputLabel input {
+	font-size: 14px;
+	height: auto;
+	padding: 5px;
+	text-align: right;
+	width: 70px;
+}
+.taxRate {
+	width: 73px;
+}
+.InvoiceTable td.InputLabel.VatRate {
+	padding-right: 10px;
+}
+.InvoiceTable td.InputLabel.VatRate input {
+	width: 65px;
+}
+.InvoiceTable td.NumberLabel {
+	color: #9ab1c5;
+	padding-left: 40px;
+}
+.InvoiceTable td.MainLabel {
+	padding: 0 5px 0 25px;
+}
+.InvoiceTable td.MainLabel input {
+}
+.taxCanada span {
+	position: absolute;
+	margin-top: -20px;
+}
+.InvoiceTable td.MainLabel select {
+	font-size: 14px;
+	height: 33px;
+	line-height: 14px;
+	margin: 0 5px 0 -10px;
+	padding: 2px 5px;
+	width: 155px;
+}
+.InvoiceTable .VatRow td.NumberLabel {
+	width: 189px;
+}
+.InvoiceTable .VatRow td.InputLabel {
+	padding-right: 20px;
+	padding-left: 10px;
+}
+.InvoiceTable .VatRow td.InputLabel input {
+	width: 100px;
+}
+.InvoiceTable td.MainLabel.SubAmountLabel {
+	color: #3e8acc;
+	font-size: 14px;
+	padding: 25px 0 7px 4px;
+}
+.InvoiceTable td.InputLabel.SubAmount {
+	color: #3e8acc;
+	font-size: 18px;
+	font-weight: 700;
+	padding: 22px 25px 7px 0px;
+}
+.VatRow .VatInput {
+	width: 70px;
+	display: inline;
+	font-size: 14px;
+	height: auto;
+	line-height: 16px;
+	padding-right: 5px;
+	text-align: right;
+}
+.TaxInput {
+	font-size: 14px;
+	height: auto;
+	padding: 5px;
+	text-align: right;
+	width: 80px;
+	display: inline
+}
+.InvoiceTable td.SubTotalTd {
+	background: #eef5fb;
+	padding: 15px 20px 15px 42px;
+	text-align: right;
+}
+.InvoiceTable td.Sub {
+	background: #eef5fb;
+}
+.InvoiceTable td.SubTotalTd strong {
+	color: #3e8acc;
+	font-size: 16px;
+	line-height: 32px;
+	padding-left: 30px;
+	float: left;
+}
+.InvoiceTable td.SubTotalTd input {
+	color: #3e8acc;
+	display: inline;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: right;
+	width: 125px;
+	height: auto;
+	padding: 5px;
+}
+.InvoiceTable td.TotalTd {
+	background: #3e8acc;
+	text-align: right;
+	padding: 25px 25px 25px 47px;
+	border-top: 1px solid #dcdbda;
+}
+.InvoiceTable td.TotalTd span {
+	color: #fff;
+	display: inline-block;
+	text-align: left;
+}
+.InvoiceTable td.TotalTd strong {
+	color: #fff;
+	font-size: 18px;
+	padding-left: 10px;
+}
+.InvoiceTable td.TotalTd input {
+	color: #2d80c8;
+	display: inline;
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 5px;
+	text-align: right;
+	width: 115px;
+	height: auto;
+	line-height: 16px;
+	padding-right: 5px;
+}
+.InvoiceTable td.BtnsContainer {
+	text-align: center;
+	height: 80px;
+	background: none
+}
+.InvoiceTable td.BtnsContainer .btn-primary {
+	margin-left: 5px;
+}
+.InvoiceTable td.BtnsContainer .btn-default {
+	margin-right: 5px;
+}
+.InvoiceTable tr.TaxRow td {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.InvoiceTable tr.MarkupRow td {
+	padding-bottom: 30px;
+	padding-top: 7px;
+}
+.InvoiceArea .tab-content {
+	border: none;
+	background: #f9f9f9;
+}
+#footer.invoice-footer {
+	margin-top: 135px;
+}
+.form-control.rank-select {
+	height: 32px;
+	padding: 0 7px;
+	width: 20%;
+}
+.nav.invoice-details li.active:hover {
+	margin-bottom: -1px !important;
+}
+.nav.invoice-details li.active a, .nav.invoice-details li.active:hover a, .nav.invoice-details li.active:focus a {
+	background: #f9f9f9 !important;
+	border-bottom: 1px solid #f9f9f9 !important;
+	color: #565656 !important;
+}
+.nav.nav-tabs.invoice-details {
+	background: #eef5fb;
+	text-align: center;
+	padding: 0px;
+	text-transform: uppercase;
+}
+.nav-tabs.invoice-details > li {
+	float: none;
+	font-size: 14px;
+}
+.nav-tabs.invoice-details > li strong {
+	display: inline-block;
+	font-size: 16px;
+	margin: -1px 0;
+	font-style: normal;
+}
+.nav.invoice-details > li {
+	display: inline-block;
+}
+.nav.invoice-details > li > a:hover {
+	background-color: #ededed !important;
+}
+.nav.invoice-details > li > a:hover, .nav.invoice-details > li > a:focus {
+	background-color: #ededed;
+	text-decoration: none;
+	color: #0683c9;
+	outline: none;
+}
+.nav-tabs.invoice-details > li > a:hover {
+	border-color: #dddddd #dddddd #ddd;
+}
+.InvoiceArea-fixed .nav.invoice-details {
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	top: 55px;
+}
+.InvoiceArea-fixed .row.InvoiceRow {
+	padding-top: 100px !important;
+}
+.ControlsContainer {
+}
+table.main > tbody:hover > tr > td.TemplateFilesHistoriesTd {
+	background: #FFF;
+}
+.attachments-description {
+	margin: 5px 15px 15px 20px;
+	text-overflow: ellipsis;
+	max-width: 450px;
+	word-wrap: break-word;
+}
+.form-control.rank-select {
+	height: 32px;
+	padding: 0 7px;
+	width: 20%;
+}
+.blockUI.blockOverlay {
+    background: none !important;
+    z-index: 1200 !important;
+}
+.blockUI.blockMsg.blockPage {
+	border: 3px solid white !important;
+}
+#downloadLocationsWindow .downloadDialog {
+	padding: 0 10px 20px 10px;
+}
+#downloadLocationsWindow .downloadList {
+	background-color: #eee;
+	height: 355px;
+	margin: 6px -10px -15px;
+	overflow-y: auto;
+	padding: 7px 10px;
+}
+#downloadLocationsWindow .downloadDialog h3 {
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+.location-details-header .form-group {
+	display: inline-block;
+	margin: 0 0 0 15px;
+}
+::-ms-clear {
+ display: none;
+}
+.form-group.warning-group-item {
+	position: relative;
+}
+.form-group .warning-icon {
+	display: none;
+}
+.form-group .warning-label {
+    position: absolute;
+    display: inline-block;
+    top: 27px;
+    right: 1px;
+    font-weight: normal; 
+    font-style: italic;
+    color: darkgrey;
+}
+.form-group.warning-group-item.has-warning .warning-icon {
+	position: absolute;
+	display: inline-block;
+	top: 10px;
+	left: 5px;
+}
+.form-group.warning-group-item.has-warning .warning-icon.warning-icon-right {
+	left: inherit;
+	right: 5px;
+}
+.modal {
+	bottom: inherit;
+}
+#deleteLocationsConfirm.modal {
+	z-index: 1070;
+}
+#LocationNameLabel {
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: top;
+	white-space: nowrap;
+	width: 65%;
+}
+.LocationSub #LocationNameLabel {
+	width: 100%;
+}
+textarea.resizeable {
+	height: 28px;
+	min-height: 28px;
+	margin: 10px 0;
+	padding: 4px 9px;
+	resize: vertical;
+}
+div.print-container {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #dddddd;
+}
+#AttachmentsContainer {
+	margin-top: 15px;
+}
+
+@media print {
+	.print-container+.print-container {
+		page-break-before: always;
+	}
+	#AttachmentsContainer {
+		page-break-after: always;
+	}
+	p.description, .IVRContainer, .PrintInvoice p.breadcrumbs span { 
+		position: relative; 
+		z-index: 10000000;
+	}
+	.loading, .freezeScreen { 
+		display:none !important;
+	}
+}
+.taxVldBkg {
+	background: #ff93b6;
+}
+.radio label, .checkbox label {
+	padding-left: 0;
+}
+.taxCellPercent {
+	padding-left: 1px;
+}
+.tax-included {
+	padding-right: 130px;
+}
+.InvoiceTable td.TaxIncludedError {
+	color: red;
+	font-size: 11px;
+	line-height: 14px;
+	padding-top: 0;
+	text-align: right;
+}
+.selectize-dropdown, .selectize-input, .selectize-input input {
+	color: #303030;
+	font-family: inherit;
+	font-size: 13px;
+	line-height: 18px;
+	-webkit-font-smoothing: inherit;
+}
+.PAClone-body {
+	padding: 10px 60px 5px 60px;
+	width: 85%;
+}
+.PAClone-body label {
+	padding: 20px 0 15px 0;
+}
+a.upload.btn.btn-primary {
+	padding: 0;
+}
+a.upload.btn.btn-primary div#selectFilesBtn {
+	padding: 6px 12px;
+}
+/* ui cleanup */
+.nav.nav-tabs.location-details li a {
+	margin-right: 0;
+	padding: 6px 7px;
+}
+.nav.nav-tabs.location-details li {
+	font-size: 12px;
+}
+.modal-footer .btn-default:focus, .levels-table-btn .btn-default:focus {
+	color: #333333;
+	text-decoration: none;
+	background-color: #e6e6e6;
+*  background-color: #d9d9d9;/* Buttons in IE7 don't get borders, so darken on hover */
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-ms-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+}
+/* footer bottom*/
+* {
+	margin: 0;
+	padding: 0;
+}
+html, body, .container, #page {
+	height: 100%;
+}
+#content {
+	box-sizing: border-box;
+	min-height: 100%;
+	/*padding-bottom: 45px;*/
+}
+#footer {
+	height: 35px;
+	/*margin-top: -36px;*/
+	padding:0 15px;
+	clear:both;
+	z-index:1;
+	position:relative;
+}
+.FixedLayout, .tab-content.location-details, .location-details-layout.tab-pane , .location-details-layout.tab-pane .row {
+	height: calc(100% - 20px); 
+}
+/**/
+.modal.invoice_status .col-sm-4 { 
+	padding-right:0; 
+}
+.modal.invoice_status .col-sm-4 .item { 
+	display: inline;
+}
+.modal.invoice_status .col-sm-4 .selectize-control.single .selectize-input:after {
+	right: 7px;
+}
+.modal.invoice_status .form-control { 
+	display: inline; 
+	padding: 3px 9px;
+	font-size: 12px;
+    line-height: 1.42857;
+}
+.modal.invoice_status input.form-control[type="text"], .modal.invoice_status select.form-control {
+    height: 27px;
+	margin-top:-10px;
+}
+.modal.invoice_status textarea.form-control { 
+	resize: none; 
+	margin-top:-4px;
+	margin-bottom:-5px;
+}
+
+.drop-window.popover.bottom > .arrow { display: none !important;}
+
+a.disabled {
+        pointer-events: none;
+        cursor: default;
+        opacity: 0.6;
+    }
+
+span.disabled {
+        pointer-events: none;
+        cursor: default;
+        opacity: 0.6;
+    }
+
+.invoice-status-in-header {
+    display: inline-block;
+}

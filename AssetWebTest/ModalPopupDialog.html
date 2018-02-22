@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Content/servicechannel-style.css">
+
+    <style>
+
+    .modal {
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="linkRfpToWoPopup" class="modal sc-dialog" tabindex="-1" role="dialog" aria-labelledby="example_dialog" data-result-item="0">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" data-bind="text: rfpNumber">Dialog Header</h3>
+                    <button type="button" class="sc-modal-close" data-dismiss="modal" aria-label="close">Close<i class="fa fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-1-col">
+                        <div class="div form-group select-input" style="height: 40px;">
+                            <label for="selectWos" class="required">Link to WO <a style="color: red;">*</a></label>
+                            <select id="selectWos" class="select1 form-control filter-autocomplete selectized styled-input" tabindex="-1"></select>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button id="btnCancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="btnSave" class="btn primary btn-positive" data-bind="disable: isButtonDisabled, click: postData">Confirm</button>
+                    <i id="spinner" class="fa fa-spinner fa-spin" style="font-size:24px; color:steelblue; display:none;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../../Scripts/base/knockout-3.4.1.js"></script>
+
+    <script>
+        var ViewModelRfpToWoPopup = function () {
+            var self = this;
+            self.rfpNumberMain = ko.observable('');
+            self.rfpId = ko.observable('');
+            self.rfpNumber = ko.pureComputed(function () {
+                return "Link RFP " + self.rfpNumberMain();
+            });
+            self.isButtonDisabled = ko.observable(true);
+            rfpNumberMain("Test");
+        };
+    </script>
+
+</body>
+</html>

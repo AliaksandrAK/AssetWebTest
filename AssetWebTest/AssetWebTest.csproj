@@ -17,7 +17,7 @@
     <AssemblyName>AssetWebTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -192,12 +192,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\deAsset.css" />
     <Content Include="Content\decisionEngineDetails.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\servicechannel-style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Help_programming.txt" />
     <Content Include="HtmlTestPage1.html" />
+    <Content Include="ModalPopupDialog.html" />
     <Content Include="Scripts\ajax_download.js" />
     <Content Include="Scripts\autoNumeric.js" />
     <Content Include="Scripts\bootstrap.js" />
